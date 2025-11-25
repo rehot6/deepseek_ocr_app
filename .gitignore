@@ -101,3 +101,5 @@ temp/
 Thumbs.db
 Desktop.ini
 models/
+test/
+del/
