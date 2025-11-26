@@ -68,11 +68,144 @@ class PDFTextDetector:
             print(f"❌ PDF文本检测失败: {e}")
             return False
 
+class FontAnalyzer:
+    """字体分析器，用于检测PDF中的字体信息"""
+    
+    def analyze_fonts(self, pdf_path: str) -> Dict[str, Any]:
+        """
+        分析PDF中的字体信息
+        
+        Args:
+            pdf_path: PDF文件路径
+            
+        Returns:
+            Dict: 字体分析结果
+        """
+        try:
+            doc = fitz.open(pdf_path)
+            font_info = {
+                "fonts": [],
+                "recommended_font": "china-ss",  # 默认字体
+                "has_cid_fonts": False,
+                "has_identity_h": False,
+                "font_details": []
+            }
+            
+            for page_num in range(len(doc)):
+                page = doc[page_num]
+                fonts = page.get_fonts()
+                
+                for font in fonts:
+                    font_xref = font[0] if len(font) > 0 else None
+                    font_ext = font[1] if len(font) > 1 else "Unknown"
+                    font_type = font[2] if len(font) > 2 else "Unknown"
+                    font_name = font[3] if len(font) > 3 else "Unknown"
+                    font_encoding = font[4] if len(font) > 4 else "Unknown"
+                    font_subtype = font[5] if len(font) > 5 else "Unknown"
+                    
+                    font_data = {
+                        "xref": font_xref,
+                        "extension": font_ext,
+                        "type": font_type,
+                        "name": font_name,
+                        "encoding": font_encoding,
+                        "subtype": font_subtype,
+                        "page": page_num + 1
+                    }
+                    
+                    # 检查是否是CID字体
+                    if "CIDFont" in font_name or font_type == "Type0":
+                        font_info["has_cid_fonts"] = True
+                    
+                    # 检查是否是Identity-H编码
+                    if font_encoding == "Identity-H":
+                        font_info["has_identity_h"] = True
+                    
+                    # 尝试提取字体详细信息
+                    try:
+                        if font_xref:
+                            font_buffer = doc.extract_font(font_xref)
+                            if font_buffer:
+                                font_data["has_buffer"] = True
+                                font_data["buffer_size"] = len(font_buffer)
+                            else:
+                                font_data["has_buffer"] = False
+                        else:
+                            font_data["has_buffer"] = False
+                    except:
+                        font_data["has_buffer"] = False
+                    
+                    # 添加到字体列表（去重）
+                    if font_data not in font_info["fonts"]:
+                        font_info["fonts"].append(font_data)
+            
+            # 根据检测到的字体推荐合适的字体
+            if font_info["has_cid_fonts"] or font_info["has_identity_h"]:
+                # 对于CID字体和Identity-H编码，使用支持中文的字体
+                font_info["recommended_font"] = "china-ss"
+            elif any("Times" in font["name"] for font in font_info["fonts"]):
+                font_info["recommended_font"] = "Times-Roman"
+            elif any("Helvetica" in font["name"] for font in font_info["fonts"]):
+                font_info["recommended_font"] = "Helvetica"
+            elif any("Arial" in font["name"] for font in font_info["fonts"]):
+                font_info["recommended_font"] = "Helvetica"  # Arial的替代
+            else:
+                font_info["recommended_font"] = "china-ss"  # 默认使用中文字体
+            
+            doc.close()
+            
+            print(f"📊 字体分析结果:")
+            print(f"   - 检测到 {len(font_info['fonts'])} 种字体")
+            print(f"   - 推荐字体: {font_info['recommended_font']}")
+            print(f"   - 包含CID字体: {font_info['has_cid_fonts']}")
+            print(f"   - 包含Identity-H编码: {font_info['has_identity_h']}")
+            
+            for font in font_info["fonts"]:
+                print(f"     * 字体: {font['name']}")
+                print(f"       - 编码: {font['encoding']}")
+                print(f"       - 类型: {font['type']}")
+                print(f"       - 子类型: {font['subtype']}")
+                print(f"       - 扩展名: {font['extension']}")
+                print(f"       - XREF: {font['xref']}")
+                print(f"       - 有字体数据: {font.get('has_buffer', False)}")
+            
+            return font_info
+            
+        except Exception as e:
+            print(f"❌ 字体分析失败: {e}")
+            return {
+                "fonts": [],
+                "recommended_font": "china-ss",
+                "has_cid_fonts": False,
+                "has_identity_h": False,
+                "font_details": []
+            }
+
+class CustomFontConfig:
+    """自定义字体配置"""
+    
+    def __init__(self, font_name="NotoSansCJK", encoding="Identity-H", font_type="Type0", font_file="fonts/NotoSansCJK-Regular.ttc"):
+        self.font_name = font_name
+        self.encoding = encoding
+        self.font_type = font_type
+        self.font_file = font_file  # 字体文件路径
+    
+    def get_font_config(self):
+        """获取字体配置"""
+        return {
+            "font_name": self.font_name,
+            "encoding": self.encoding,
+            "font_type": self.font_type,
+            "font_file": self.font_file
+        }
+
 class OCRTextEmbedder:
     """OCR文本嵌入器，用于将OCR结果嵌入到PDF中"""
     
-    def __init__(self):
+    def __init__(self, custom_font_config=None):
         self.backend_url = "http://localhost:8000"  # 后端服务地址
+        self.font_analyzer = FontAnalyzer()
+        self.custom_font_config = custom_font_config or CustomFontConfig()
     
     def perform_ocr(self, pdf_path: str) -> List[Dict[str, Any]]:
         """
@@ -142,8 +275,46 @@ class OCRTextEmbedder:
         try:
             print("📝 将OCR文本嵌入PDF...")
             
+            # 使用自定义字体配置
+            font_config = self.custom_font_config.get_font_config()
+            font_name = font_config["font_name"]
+            encoding = font_config["encoding"]
+            font_type = font_config["font_type"]
+            font_file = font_config["font_file"]
+            
+            print(f"🎨 使用自定义字体配置:")
+            print(f"   - 字体名称: {font_name}")
+            print(f"   - 编码: {encoding}")
+            print(f"   - 类型: {font_type}")
+            if font_file:
+                print(f"   - 字体文件: {font_file}")
+            
             doc = fitz.open(input_pdf)
             text_count = 0
+            
+            # 如果有字体文件，先嵌入字体
+            if font_file and os.path.exists(font_file):
+                print(f"📦 嵌入自定义字体文件: {font_file}")
+                # 为字体分配一个内部名称
+                font_internal_name = "CustomFont"
+                
+                for page_num in range(len(doc)):
+                    page = doc[page_num]
+                    try:
+                        # 嵌入字体到页面
+                        page.insert_font(fontfile=font_file, fontname=font_internal_name)
+                        print(f"✅ 页面 {page_num+1} 字体嵌入成功")
+                        actual_font = font_internal_name
+                        break
+                    except Exception as e:
+                        print(f"⚠ 页面 {page_num+1} 字体嵌入失败: {e}")
+                else:
+                    print(f"❌ 所有页面字体嵌入失败，使用默认字体")
+                    actual_font = font_name
+            else:
+                # 没有字体文件，尝试直接使用指定的字体
+                actual_font = font_name
+                print(f"   - 尝试直接使用字体: {actual_font}")
             
             for page_data in ocr_data:
                 page_num = page_data.get('page_number', 1) - 1  # 转换为0-based索引
@@ -166,12 +337,12 @@ class OCRTextEmbedder:
                             page_rect.width - 50, page_rect.height - 50  # 右下角
                         )
                         
-                        # 使用insert_textbox，它会正确处理文本换行和完整嵌入
+                        # 使用字体
                         result = page.insert_textbox(
                             text_rect,
                             text,
                             fontsize=8,
-                            fontname="china-ss",  # 使用简体中文字体
+                            fontname=actual_font,  # 使用字体
                             color=(0, 0, 0),  # 黑色文本
                             align=0,  # 左对齐
                             overlay=True
@@ -180,6 +351,7 @@ class OCRTextEmbedder:
                         if result > 0:
                             text_count += 1
                             print(f"✅ 页面 {page_num+1} 文本嵌入成功，完整文本已嵌入")
+                            print(f"   - 使用字体: {actual_font}")
                         else:
                             # 如果文本区域太小，尝试使用更大的区域
                             print(f"⚠ 页面 {page_num+1} 文本区域太小，尝试使用更大的区域")
@@ -189,7 +361,7 @@ class OCRTextEmbedder:
                                 full_rect,
                                 text,
                                 fontsize=6,  # 使用更小的字体
-                                fontname="china-ss",
+                                fontname=actual_font,
                                 color=(0, 0, 0),
                                 align=0,
                                 overlay=True
@@ -197,17 +369,46 @@ class OCRTextEmbedder:
                             if result2 > 0:
                                 text_count += 1
                                 print(f"✅ 页面 {page_num+1} 文本嵌入成功（使用小字体）")
+                                print(f"   - 使用字体: {actual_font}")
                             else:
                                 text_count += 1
                                 print(f"⚠ 页面 {page_num+1} 文本可能未完全显示，但部分文本已嵌入")
+                                print(f"   - 使用字体: {actual_font}")
                     except Exception as e:
                         print(f"⚠ 页面 {page_num+1} 文本嵌入失败: {e}")
+                        # 如果字体使用失败，回退到支持中文的字体
+                        print(f"   - 字体 {actual_font} 使用失败，回退到支持中文的字体")
+                        try:
+                            text_rect = fitz.Rect(50, 50, page_rect.width - 50, page_rect.height - 50)
+                            result = page.insert_textbox(
+                                text_rect,
+                                text,
+                                fontsize=8,
+                                fontname="china-ss",  # 回退字体
+                                color=(0, 0, 0),
+                                align=0,
+                                overlay=True
+                            )
+                            if result > 0:
+                                text_count += 1
+                                print(f"✅ 页面 {page_num+1} 文本嵌入成功（使用回退字体）")
+                                print(f"   - 使用字体: china-ss")
+                        except Exception as e2:
+                            print(f"❌ 页面 {page_num+1} 回退字体也失败: {e2}")
             
             # 保存PDF，确保字体嵌入
             doc.save(output_pdf, garbage=4, deflate=True, clean=True, expand=True)
             doc.close()
             
             print(f"✅ 文本嵌入完成，共嵌入 {text_count} 页文本")
+            print(f"🎨 最终使用的字体配置:")
+            print(f"   - 配置字体: {font_name}")
+            print(f"   - 实际字体: {actual_font}")
+            print(f"   - 编码: {encoding}")
+            print(f"   - 类型: {font_type}")
+            if font_file:
+                print(f"   - 字体文件: {font_file}")
+            
             return output_pdf
             
         except Exception as e:
