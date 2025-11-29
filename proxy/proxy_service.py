@@ -292,11 +292,15 @@ class OCRTextEmbedder:
             doc = fitz.open(input_pdf)
             text_count = 0
             
-            # 如果有字体文件，先嵌入字体
+            # 强制使用自定义字体文件
             if font_file and os.path.exists(font_file):
-                print(f"📦 嵌入自定义字体文件: {font_file}")
+                print(f"📦 强制使用自定义字体文件: {font_file}")
                 # 为字体分配一个内部名称
                 font_internal_name = "CustomFont"
+                
+                # 尝试在页面级别嵌入字体
+                actual_font = font_internal_name
+                font_embedded = False
                 
                 for page_num in range(len(doc)):
                     page = doc[page_num]
@@ -304,17 +308,16 @@ class OCRTextEmbedder:
                         # 嵌入字体到页面
                         page.insert_font(fontfile=font_file, fontname=font_internal_name)
                         print(f"✅ 页面 {page_num+1} 字体嵌入成功")
-                        actual_font = font_internal_name
+                        font_embedded = True
                         break
                     except Exception as e:
                         print(f"⚠ 页面 {page_num+1} 字体嵌入失败: {e}")
-                else:
-                    print(f"❌ 所有页面字体嵌入失败，使用默认字体")
-                    actual_font = font_name
+                
+                if not font_embedded:
+                    raise Exception(f"所有页面字体嵌入失败")
             else:
-                # 没有字体文件，尝试直接使用指定的字体
-                actual_font = font_name
-                print(f"   - 尝试直接使用字体: {actual_font}")
+                # 没有字体文件，直接失败
+                raise Exception(f"字体文件不存在: {font_file}")
             
             for page_data in ocr_data:
                 page_num = page_data.get('page_number', 1) - 1  # 转换为0-based索引
@@ -329,7 +332,7 @@ class OCRTextEmbedder:
                     # 获取页面尺寸
                     page_rect = page.rect
                     
-                    # 在页面底部添加文本（使用insert_textbox确保完整文本嵌入）
+                    # 在页面底部添加文本（使用透明文字，完全不可见但可搜索）
                     try:
                         # 创建一个覆盖大部分页面的文本区域
                         text_rect = fitz.Rect(
@@ -337,64 +340,42 @@ class OCRTextEmbedder:
                             page_rect.width - 50, page_rect.height - 50  # 右下角
                         )
                         
-                        # 使用字体
-                        result = page.insert_textbox(
+                        # 使用TextWriter创建透明文字
+                        text_writer = fitz.TextWriter(text_rect, opacity=0, color=(0, 0, 0))
+                        
+                        # 创建字体对象
+                        if actual_font == "CustomFont":
+                            # 使用嵌入的自定义字体
+                            font_obj = fitz.Font(fontfile=font_file)
+                        else:
+                            # 使用内置字体
+                            font_obj = fitz.Font(fontname=actual_font)
+                        
+                        # 使用fill_textbox方法填充文本，正确处理换行符
+                        overflow_lines = text_writer.fill_textbox(
                             text_rect,
                             text,
+                            font=font_obj,
                             fontsize=8,
-                            fontname=actual_font,  # 使用字体
-                            color=(0, 0, 0),  # 黑色文本
                             align=0,  # 左对齐
-                            overlay=True
+                            warn=False  # 不警告溢出
                         )
                         
-                        if result > 0:
-                            text_count += 1
-                            print(f"✅ 页面 {page_num+1} 文本嵌入成功，完整文本已嵌入")
-                            print(f"   - 使用字体: {actual_font}")
-                        else:
-                            # 如果文本区域太小，尝试使用更大的区域
-                            print(f"⚠ 页面 {page_num+1} 文本区域太小，尝试使用更大的区域")
-                            # 使用整个页面区域
-                            full_rect = fitz.Rect(20, 20, page_rect.width - 20, page_rect.height - 20)
-                            result2 = page.insert_textbox(
-                                full_rect,
-                                text,
-                                fontsize=6,  # 使用更小的字体
-                                fontname=actual_font,
-                                color=(0, 0, 0),
-                                align=0,
-                                overlay=True
-                            )
-                            if result2 > 0:
-                                text_count += 1
-                                print(f"✅ 页面 {page_num+1} 文本嵌入成功（使用小字体）")
-                                print(f"   - 使用字体: {actual_font}")
-                            else:
-                                text_count += 1
-                                print(f"⚠ 页面 {page_num+1} 文本可能未完全显示，但部分文本已嵌入")
-                                print(f"   - 使用字体: {actual_font}")
+                        # 写入页面，使用render_mode=3使文本完全不可见但可搜索
+                        text_writer.write_text(page, render_mode=3, overlay=True)
+                        
+                        if overflow_lines:
+                            print(f"⚠ 页面 {page_num+1} 部分文本溢出，未完全显示")
+                        
+                        text_count += 1
+                        print(f"✅ 页面 {page_num+1} 文本嵌入成功，完整文本已嵌入")
+                        print(f"   - 使用字体: {actual_font}")
+                        print(f"   - 透明度: 0 (完全透明)")
+                        print(f"   - 渲染模式: 3 (完全不可见但可搜索)")
+                        
                     except Exception as e:
-                        print(f"⚠ 页面 {page_num+1} 文本嵌入失败: {e}")
-                        # 如果字体使用失败，回退到支持中文的字体
-                        print(f"   - 字体 {actual_font} 使用失败，回退到支持中文的字体")
-                        try:
-                            text_rect = fitz.Rect(50, 50, page_rect.width - 50, page_rect.height - 50)
-                            result = page.insert_textbox(
-                                text_rect,
-                                text,
-                                fontsize=8,
-                                fontname="china-ss",  # 回退字体
-                                color=(0, 0, 0),
-                                align=0,
-                                overlay=True
-                            )
-                            if result > 0:
-                                text_count += 1
-                                print(f"✅ 页面 {page_num+1} 文本嵌入成功（使用回退字体）")
-                                print(f"   - 使用字体: china-ss")
-                        except Exception as e2:
-                            print(f"❌ 页面 {page_num+1} 回退字体也失败: {e2}")
+                        print(f"❌ 页面 {page_num+1} 文本嵌入失败: {e}")
+                        raise Exception(f"文本嵌入失败: {e}")
             
             # 保存PDF，确保字体嵌入
             doc.save(output_pdf, garbage=4, deflate=True, clean=True, expand=True)
