@@ -79,7 +79,9 @@ Export your OCR results in the format you need:
 3. **Access the application:**
    - **Frontend**: http://localhost:3000 (or your configured FRONTEND_PORT)
    - **Backend API**: http://localhost:8000 (or your configured API_PORT)
+   - **Proxy Service**: http://localhost:8001 (or your configured PROXY_PORT)
    - **API Docs**: http://localhost:8000/docs
+   - **Proxy API Docs**: http://localhost:8001/docs
 
 ## 🎓 How to Use
 
@@ -168,6 +170,13 @@ API_PORT=8000
 # Frontend Configuration
 FRONTEND_PORT=3000
 
+# Proxy Service Configuration
+PROXY_PORT=8001
+AUTH_TOKEN=your_secure_token_here
+PAPERLESS_URL=https://your-paperless-instance.com
+PAPERLESS_API_KEY=your_paperless_api_key_here
+LOG_LEVEL=INFO
+
 # Model Configuration
 MODEL_NAME=deepseek-ai/DeepSeek-OCR
 HF_HOME=/models
@@ -186,6 +195,11 @@ CROP_MODE=true         # Enable dynamic cropping for large images
 - `API_HOST`: Backend API host (default: 0.0.0.0)
 - `API_PORT`: Backend API port (default: 8000)
 - `FRONTEND_PORT`: Frontend port (default: 3000)
+- `PROXY_PORT`: Proxy service port (default: 8001)
+- `AUTH_TOKEN`: API认证token (必填)
+- `PAPERLESS_URL`: Paperless服务地址 (可选)
+- `PAPERLESS_API_KEY`: Paperless API密钥 (可选)
+- `LOG_LEVEL`: 日志级别 (DEBUG/INFO/WARNING/ERROR, 默认INFO)
 - `MODEL_NAME`: HuggingFace model identifier
 - `HF_HOME`: Model cache directory
 - `MAX_UPLOAD_SIZE_MB`: Maximum file upload size in megabytes
@@ -240,6 +254,14 @@ deepseek-ocr/
 │   ├── package.json
 │   ├── nginx.conf
 │   └── Dockerfile
+├── proxy/                    # PDF OCR代理服务 (NEW)
+│   ├── proxy_service.py     # 智能OCR代理服务
+│   ├── Dockerfile           # 代理服务Docker配置
+│   ├── requirements.txt     # Python依赖
+│   ├── README.md            # 代理服务文档
+│   ├── test_new_features.py # 功能测试脚本
+│   ├── .env.example         # 环境变量示例
+│   └── fonts/               # 字体文件目录
 ├── models/                   # Model cache
 └── docker-compose.yml
 ```
