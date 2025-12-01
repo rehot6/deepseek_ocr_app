@@ -14,7 +14,12 @@ class PaperlessClient:
     """Paperless API客户端 - 修复 CSRF 问题版本"""
     
     def __init__(self):
-        self.base_url = settings.paperless_url
+        # 清理URL末尾的斜杠
+        base_url = settings.paperless_url
+        if base_url and base_url.endswith('/'):
+            base_url = base_url.rstrip('/')
+        
+        self.base_url = base_url
         self.api_key = settings.paperless_api_key
         self.session = requests.Session()
         self.csrf_token: Optional[str] = None
@@ -131,15 +136,20 @@ class PaperlessClient:
                     
                     if 'application/json' in content_type:
                         try:
+                            # 尝试解析JSON响应
                             task_data = response.json()
-                            task_id = task_data.get('task_id')
-                            logger.info(f"文档消费任务已启动: {filename}, 任务ID: {task_id}")
-                            logger.debug(f"任务响应: {task_data}")
+                            if isinstance(task_data, dict):
+                                task_id = task_data.get('task_id')
+                                logger.info(f"文档消费任务已启动: {filename}, 任务ID: {task_id}")
+                                logger.debug(f"任务响应: {task_data}")
+                            else:
+                                # 如果响应是字符串（如任务ID字符串）
+                                logger.info(f"文档消费任务已启动: {filename}, 任务ID: {task_data}")
                             return True
                         except Exception as json_error:
-                            logger.error(f"解析JSON响应失败: {json_error}")
-                            logger.debug(f"原始响应: {response.text}")
-                            return False
+                            # 如果JSON解析失败，可能是字符串响应
+                            logger.info(f"文档消费任务已启动: {filename}, 任务ID: {response.text}")
+                            return True
                     else:
                         # 如果不是JSON响应，可能是空响应或HTML响应
                         # 根据Paperless文档，HTTP 200表示成功启动，即使没有JSON响应
