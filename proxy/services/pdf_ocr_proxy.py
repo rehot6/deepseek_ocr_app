@@ -24,7 +24,89 @@ class PDFOCRProxy:
         self.ocr_embedder = OCRTextEmbedder()
         self.paperless_client = PaperlessClient()
     
-    async def process_pdf_async(self, pdf_file: UploadFile, task_id: str, processing_tasks: Dict[str, Any]) -> Dict[str, Any]:
+    async def process_pdf_sync(self, pdf_file: UploadFile, force_ocr: bool = False) -> Dict[str, Any]:
+        """
+        同步处理PDF文件
+        
+        Args:
+            pdf_file: 上传的PDF文件
+            force_ocr: 是否强制进行OCR处理，即使PDF已包含文本
+            
+        Returns:
+            Dict: 处理结果，可能包含文件路径或JSON响应
+        """
+        try:
+            # 创建临时文件
+            input_pdf = create_temp_file(suffix=".pdf")
+            output_pdf = None
+            
+            try:
+                # 保存上传的文件到临时文件
+                content = await pdf_file.read()
+                with open(input_pdf, 'wb') as f:
+                    f.write(content)
+                
+                # 1. 检测PDF是否已经包含有意义的文本
+                logger.info(f"同步处理: 检测PDF文本内容，force_ocr={force_ocr}...")
+                has_text = self.text_detector.has_meaningful_text(input_pdf)
+                
+                # 如果强制OCR或者PDF没有有意义的文本，则进行OCR处理
+                needs_ocr = force_ocr or not has_text
+                logger.info(f"同步处理: 文本检测结果 - has_text={has_text}, needs_ocr={needs_ocr}")
+                
+                if not needs_ocr:
+                    logger.info(f"同步处理: PDF已包含有意义的文本，无需OCR处理")
+                    
+                    return {
+                        "success": True,
+                        "message": "PDF已包含有意义的文本，无需OCR处理",
+                        "needs_ocr": False,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text
+                    }
+                else:
+                    if force_ocr:
+                        logger.info(f"同步处理: 强制OCR处理，即使PDF已包含文本")
+                    else:
+                        logger.info(f"同步处理: PDF需要OCR处理")
+                    
+                    # 2. 调用OCR服务
+                    ocr_data = self.ocr_embedder.perform_ocr(input_pdf)
+                    
+                    # 3. 创建输出文件
+                    output_pdf = create_temp_file(suffix=".pdf")
+                    
+                    # 4. 将OCR文本嵌入PDF
+                    result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data)
+                    
+                    return {
+                        "success": True,
+                        "message": "OCR处理完成，文本已嵌入PDF",
+                        "needs_ocr": True,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text,
+                        "output_file": result_pdf,
+                        "ocr_data": {
+                            "total_pages": len(ocr_data),
+                            "pages_processed": len([p for p in ocr_data if p.get('text', '').strip()])
+                        }
+                    }
+                    
+            except Exception as e:
+                logger.error(f"同步处理失败: {e}")
+                raise
+                
+            finally:
+                # 注意：同步处理中，如果返回文件，调用者需要负责清理
+                # 这里只清理输入文件，输出文件由调用者处理
+                if input_pdf:
+                    cleanup_temp_files(input_pdf)
+                    
+        except Exception as e:
+            logger.error(f"同步处理失败: {e}")
+            raise
+    
+    async def process_pdf_async(self, pdf_file: UploadFile, task_id: str, processing_tasks: Dict[str, Any], force_ocr: bool = False) -> Dict[str, Any]:
         """
         异步处理PDF文件
         
@@ -32,6 +114,7 @@ class PDFOCRProxy:
             pdf_file: 上传的PDF文件
             task_id: 任务ID
             processing_tasks: 任务存储字典
+            force_ocr: 是否强制进行OCR处理，即使PDF已包含文本
             
         Returns:
             Dict: 处理结果
@@ -41,7 +124,8 @@ class PDFOCRProxy:
             processing_tasks[task_id] = {
                 "status": "processing",
                 "start_time": datetime.now().isoformat(),
-                "message": "正在处理PDF文件"
+                "message": "正在处理PDF文件",
+                "force_ocr": force_ocr
             }
             
             # 创建临时文件
@@ -55,10 +139,14 @@ class PDFOCRProxy:
                     f.write(content)
                 
                 # 1. 检测PDF是否已经包含有意义的文本
-                logger.info(f"任务 {task_id}: 检测PDF文本内容...")
+                logger.info(f"任务 {task_id}: 检测PDF文本内容，force_ocr={force_ocr}...")
                 has_text = self.text_detector.has_meaningful_text(input_pdf)
                 
-                if has_text:
+                # 如果强制OCR或者PDF没有有意义的文本，则进行OCR处理
+                needs_ocr = force_ocr or not has_text
+                logger.info(f"任务 {task_id}: 文本检测结果 - has_text={has_text}, needs_ocr={needs_ocr}")
+                
+                if not needs_ocr:
                     logger.info(f"任务 {task_id}: PDF已包含有意义的文本，无需OCR处理")
                     
                     # 上传到Paperless
@@ -69,16 +157,23 @@ class PDFOCRProxy:
                         "end_time": datetime.now().isoformat(),
                         "message": "PDF已包含有意义的文本，无需OCR处理",
                         "paperless_uploaded": paperless_success,
-                        "needs_ocr": False
+                        "needs_ocr": False,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text
                     }
                     
                     return {
                         "success": True,
                         "needs_ocr": False,
-                        "paperless_uploaded": paperless_success
+                        "paperless_uploaded": paperless_success,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text
                     }
                 else:
-                    logger.info(f"任务 {task_id}: PDF需要OCR处理")
+                    if force_ocr:
+                        logger.info(f"任务 {task_id}: 强制OCR处理，即使PDF已包含文本")
+                    else:
+                        logger.info(f"任务 {task_id}: PDF需要OCR处理")
                     
                     # 2. 调用OCR服务
                     ocr_data = self.ocr_embedder.perform_ocr(input_pdf)
@@ -98,6 +193,8 @@ class PDFOCRProxy:
                         "message": "OCR处理完成，文本已嵌入PDF",
                         "paperless_uploaded": paperless_success,
                         "needs_ocr": True,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text,
                         "ocr_data": {
                             "total_pages": len(ocr_data),
                             "pages_processed": len([p for p in ocr_data if p.get('text', '').strip()])
@@ -107,7 +204,9 @@ class PDFOCRProxy:
                     return {
                         "success": True,
                         "needs_ocr": True,
-                        "paperless_uploaded": paperless_success
+                        "paperless_uploaded": paperless_success,
+                        "force_ocr": force_ocr,
+                        "has_text": has_text
                     }
                     
             except Exception as e:
@@ -115,9 +214,15 @@ class PDFOCRProxy:
                 processing_tasks[task_id] = {
                     "status": "failed",
                     "end_time": datetime.now().isoformat(),
-                    "message": f"处理失败: {str(e)}"
+                    "message": f"处理失败: {str(e)}",
+                    "force_ocr": force_ocr
                 }
-                raise
+                # 不重新抛出异常，避免影响已开始的响应
+                return {
+                    "success": False,
+                    "error": str(e),
+                    "force_ocr": force_ocr
+                }
                 
             finally:
                 # 清理临时文件
@@ -128,6 +233,12 @@ class PDFOCRProxy:
             processing_tasks[task_id] = {
                 "status": "failed",
                 "end_time": datetime.now().isoformat(),
-                "message": f"处理失败: {str(e)}"
+                "message": f"处理失败: {str(e)}",
+                "force_ocr": force_ocr
             }
-            raise
+            # 不重新抛出异常，避免影响已开始的响应
+            return {
+                "success": False,
+                "error": str(e),
+                "force_ocr": force_ocr
+            }

@@ -80,6 +80,7 @@ Authorization: Bearer your_token_here
 
 **参数**:
 - `pdf_file`: PDF文件 (multipart/form-data)
+- `force_ocr`: 是否强制进行OCR处理，即使PDF已包含文本（可选，默认: false）
 
 **响应** (202 Accepted):
 ```json
@@ -87,6 +88,7 @@ Authorization: Bearer your_token_here
   "status": "accepted",
   "task_id": "uuid-string",
   "message": "PDF已接收，正在后台处理",
+  "force_ocr": false,
   "check_status": "/api/tasks/uuid-string"
 }
 ```
@@ -105,6 +107,8 @@ GET /api/tasks/{task_id}
   "message": "OCR处理完成，文本已嵌入PDF",
   "paperless_uploaded": true,
   "needs_ocr": true,
+  "force_ocr": false,
+  "has_text": false,
   "ocr_data": {
     "total_pages": 10,
     "pages_processed": 10
@@ -118,19 +122,22 @@ GET /api/tasks/{task_id}
 
 **参数**:
 - `pdf_file`: PDF文件 (multipart/form-data)
+- `force_ocr`: 是否强制进行OCR处理，即使PDF已包含文本（可选，默认: false）
 
 **响应**:
 
-**情况1: PDF已包含有意义的文本**
+**情况1: PDF已包含有意义的文本且未强制OCR**
 ```json
 {
   "success": true,
   "message": "PDF已包含有意义的文本，无需OCR处理",
-  "needs_ocr": false
+  "needs_ocr": false,
+  "force_ocr": false,
+  "has_text": true
 }
 ```
 
-**情况2: PDF需要OCR处理**
+**情况2: PDF需要OCR处理或强制OCR**
 - 返回处理后的PDF文件 (application/pdf)
 - 文件名格式: `ocr_processed_原文件名.pdf`
 
@@ -140,11 +147,18 @@ GET /api/tasks/{task_id}
 
 #### 异步处理（推荐）
 ```bash
-# 提交PDF处理任务
+# 提交PDF处理任务（默认行为，智能检测）
 curl -X POST \
   http://localhost:8001/api/process-pdf \
   -H "Authorization: Bearer your_token_here" \
   -F "pdf_file=@document.pdf"
+
+# 提交PDF处理任务（强制OCR处理）
+curl -X POST \
+  http://localhost:8001/api/process-pdf \
+  -H "Authorization: Bearer your_token_here" \
+  -F "pdf_file=@document.pdf" \
+  -F "force_ocr=true"
 
 # 查询任务状态
 curl -X GET \
@@ -154,10 +168,19 @@ curl -X GET \
 
 #### 同步处理（向后兼容）
 ```bash
+# 同步处理（默认行为，智能检测）
 curl -X POST \
   http://localhost:8001/api/process-pdf-sync \
   -H "Authorization: Bearer your_token_here" \
   -F "pdf_file=@document.pdf" \
+  -o processed_document.pdf
+
+# 同步处理（强制OCR处理）
+curl -X POST \
+  http://localhost:8001/api/process-pdf-sync \
+  -H "Authorization: Bearer your_token_here" \
+  -F "pdf_file=@document.pdf" \
+  -F "force_ocr=true" \
   -o processed_document.pdf
 ```
 
@@ -171,13 +194,15 @@ class PDFOCRClient:
         self.base_url = base_url
         self.headers = {"Authorization": f"Bearer {token}"}
     
-    def process_pdf_async(self, file_path):
+    def process_pdf_async(self, file_path, force_ocr=False):
         """异步处理PDF"""
         with open(file_path, 'rb') as f:
             files = {'pdf_file': ('document.pdf', f, 'application/pdf')}
+            data = {'force_ocr': str(force_ocr).lower()}
             response = requests.post(
                 f"{self.base_url}/api/process-pdf",
                 files=files,
+                data=data,
                 headers=self.headers
             )
         
@@ -185,6 +210,28 @@ class PDFOCRClient:
             return response.json()  # 返回任务信息
         else:
             raise Exception(f"提交失败: {response.text}")
+    
+    def process_pdf_sync(self, file_path, force_ocr=False):
+        """同步处理PDF"""
+        with open(file_path, 'rb') as f:
+            files = {'pdf_file': ('document.pdf', f, 'application/pdf')}
+            data = {'force_ocr': str(force_ocr).lower()}
+            response = requests.post(
+                f"{self.base_url}/api/process-pdf-sync",
+                files=files,
+                data=data,
+                headers=self.headers
+            )
+        
+        if response.headers.get('content-type') == 'application/pdf':
+            # 返回PDF文件
+            output_file = f"ocr_processed_{file_path}"
+            with open(output_file, 'wb') as f:
+                f.write(response.content)
+            return {"success": True, "output_file": output_file, "needs_ocr": True}
+        else:
+            # 返回JSON响应
+            return response.json()
     
     def get_task_status(self, task_id):
         """查询任务状态"""
@@ -197,9 +244,20 @@ class PDFOCRClient:
 # 使用示例
 client = PDFOCRClient("http://localhost:8001", "your_token_here")
 
-# 异步处理
+# 异步处理（默认行为，智能检测）
 task_info = client.process_pdf_async("my_document.pdf")
 print(f"任务已提交: {task_info['task_id']}")
+
+# 异步处理（强制OCR）
+task_info_force = client.process_pdf_async("my_document.pdf", force_ocr=True)
+print(f"强制OCR任务已提交: {task_info_force['task_id']}")
+
+# 同步处理（强制OCR）
+result = client.process_pdf_sync("my_document.pdf", force_ocr=True)
+if result.get("needs_ocr", False):
+    print(f"OCR处理完成，文件保存为: {result['output_file']}")
+else:
+    print(f"无需OCR处理: {result['message']}")
 
 # 查询状态
 import time
@@ -275,15 +333,3 @@ curl http://localhost:8001/health
 4. **字体嵌入失败**: 确保字体文件存在于 `fonts/` 目录
 
 
-```bash
-# 提交PDF处理任务
-curl -X POST \
-  http://localhost:8001/api/process-pdf \
-  -H "Authorization: Bearer U6drUduBRoM1vGga7Di2cVse7jiURNsDZUGGDcEyofTOO7F66KbBbqSeILfTfFg3" \
-  -F "pdf_file=@test/GB∕T37964-2019信息安全技术个人信息去标识化指南.pdf"
-
-# 查询任务状态
-curl -X GET \
-  http://localhost:8001/api/tasks/task-uuid-here \
-  -H "Authorization: Bearer your_token_here"
-```
