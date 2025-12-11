@@ -76,8 +76,8 @@ class PDFOCRProxy:
                     # 3. 创建输出文件
                     output_pdf = create_temp_file(suffix=".pdf")
                     
-                    # 4. 将OCR文本嵌入PDF
-                    result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data)
+                    # 4. 将OCR文本嵌入PDF（强制OCR时删除原始文本层）
+                    result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data, remove_text_layer=force_ocr)
                     
                     return {
                         "success": True,
@@ -181,8 +181,8 @@ class PDFOCRProxy:
                     # 3. 创建输出文件
                     output_pdf = create_temp_file(suffix=".pdf")
                     
-                    # 4. 将OCR文本嵌入PDF
-                    result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data)
+                    # 4. 将OCR文本嵌入PDF（强制OCR时删除原始文本层）
+                    result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data, remove_text_layer=force_ocr)
                     
                     # 5. 上传到Paperless（保持原文件名）
                     paperless_success = self.paperless_client.upload_document(result_pdf, pdf_file.filename)

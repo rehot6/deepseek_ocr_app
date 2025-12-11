@@ -24,6 +24,59 @@ class OCRTextEmbedder:
         self.font_analyzer = FontAnalyzer()
         self.custom_font_config = custom_font_config or CustomFontConfig()
     
+    def remove_text_preserve_appearance(self, input_pdf: str, output_pdf: str, dpi: int = 300) -> str:
+        """
+        通过将每页渲染为图像来彻底删除文本层
+        保留原始视觉效果，但会损失矢量信息
+        
+        Args:
+            input_pdf: 输入PDF路径
+            output_pdf: 输出PDF路径
+            dpi: 图像分辨率（默认300）
+            
+        Returns:
+            str: 输出PDF路径
+        """
+        try:
+            logger.info(f"删除文本层，保留图像层，DPI={dpi}...")
+            
+            doc = fitz.open(input_pdf)
+            
+            # 创建一个新的空PDF
+            new_doc = fitz.open()
+            
+            for page_num in range(len(doc)):
+                page = doc[page_num]
+                
+                # 将页面渲染为高分辨率图像
+                matrix = fitz.Matrix(dpi/72, dpi/72)  # 提高DPI保持清晰度
+                pix = page.get_pixmap(matrix=matrix, alpha=False)
+                
+                # 将Pixmap转换为图像数据
+                img_data = pix.tobytes("png")
+                
+                # 创建新的PDF页面（与原始页面相同尺寸）
+                new_page = new_doc.new_page(width=page.rect.width, 
+                                           height=page.rect.height)
+                
+                # 在相同位置插入图像
+                rect = fitz.Rect(0, 0, page.rect.width, page.rect.height)
+                new_page.insert_image(rect, stream=img_data)
+                
+                logger.debug(f"页面 {page_num+1} 已转换为图像")
+            
+            # 保存新PDF
+            new_doc.save(output_pdf, deflate=True)
+            new_doc.close()
+            doc.close()
+            
+            logger.info(f"文本层已删除，生成纯图像PDF: {output_pdf}")
+            return output_pdf
+            
+        except Exception as e:
+            logger.error(f"删除文本层失败: {e}")
+            raise HTTPException(status_code=500, detail=f"删除文本层失败: {str(e)}")
+    
     def perform_ocr(self, pdf_path: str) -> List[Dict[str, Any]]:
         """
         调用后端OCR服务处理PDF
@@ -73,7 +126,7 @@ class OCRTextEmbedder:
             logger.error(f"OCR处理失败: {e}")
             raise HTTPException(status_code=500, detail=f"OCR处理失败: {str(e)}")
     
-    def embed_text_to_pdf(self, input_pdf: str, output_pdf: str, ocr_data: List[Dict[str, Any]]) -> str:
+    def embed_text_to_pdf(self, input_pdf: str, output_pdf: str, ocr_data: List[Dict[str, Any]], remove_text_layer: bool = False) -> str:
         """
         将OCR文本嵌入到PDF中
         
@@ -81,12 +134,21 @@ class OCRTextEmbedder:
             input_pdf: 输入PDF路径
             output_pdf: 输出PDF路径
             ocr_data: OCR数据
+            remove_text_layer: 是否先删除文本层（默认False）
             
         Returns:
             str: 输出PDF路径
         """
         try:
-            logger.info("将OCR文本嵌入PDF...")
+            logger.info(f"将OCR文本嵌入PDF，remove_text_layer={remove_text_layer}...")
+            
+            # 如果需要删除文本层，先创建纯图像PDF
+            if remove_text_layer:
+                logger.info("强制OCR模式：先删除原始文本层...")
+                # 创建临时纯图像PDF
+                image_pdf = output_pdf.replace(".pdf", "_image.pdf")
+                image_pdf = self.remove_text_preserve_appearance(input_pdf, image_pdf, dpi=300)
+                input_pdf = image_pdf  # 使用纯图像PDF作为输入
             
             # 使用自定义字体配置
             font_config = self.custom_font_config.get_font_config()
