@@ -3,11 +3,13 @@ OCR文本嵌入器
 用于将OCR结果嵌入到PDF中
 """
 import os
-import requests
+import httpx
 import fitz  # PyMuPDF
 import logging
+import asyncio
 from typing import List, Dict, Any
 from fastapi import HTTPException
+from pathlib import Path
 
 from config import settings
 from models.font_analyzer import FontAnalyzer
@@ -77,9 +79,9 @@ class OCRTextEmbedder:
             logger.error(f"删除文本层失败: {e}")
             raise HTTPException(status_code=500, detail=f"删除文本层失败: {str(e)}")
     
-    def perform_ocr(self, pdf_path: str) -> List[Dict[str, Any]]:
+    async def perform_ocr_async(self, pdf_path: str) -> List[Dict[str, Any]]:
         """
-        调用后端OCR服务处理PDF
+        异步调用后端OCR服务处理PDF
         
         Args:
             pdf_path: PDF文件路径
@@ -88,43 +90,91 @@ class OCRTextEmbedder:
             List[Dict]: OCR结果数据
         """
         try:
-            logger.info("调用后端OCR服务...")
+            logger.info("异步调用后端OCR服务...")
             
-            # 读取PDF文件
-            with open(pdf_path, 'rb') as f:
-                files = {'pdf_file': ('input.pdf', f, 'application/pdf')}
-                data = {
-                    'mode': 'plain_ocr',
-                    'output_format': 'json',
-                    'dpi': 144
-                }
-                
-                # 发送请求到后端OCR服务
-                response = requests.post(
-                    f"{self.backend_url}/api/process-pdf",
-                    files=files,
-                    data=data,
-                    timeout=300  # 5分钟超时
-                )
-                
-                if response.status_code == 200:
-                    result = response.json()
-                    logger.info(f"OCR处理完成，共 {result.get('total_pages', 0)} 页")
+            # 获取PDF页数以计算动态超时
+            page_count = 0
+            try:
+                with fitz.open(pdf_path) as doc:
+                    page_count = len(doc)
+                logger.info(f"PDF页数: {page_count}")
+            except Exception as e:
+                logger.warning(f"无法获取PDF页数: {e}")
+                page_count = 10  # 默认值
+            
+            # 动态计算超时时间
+            # 基础超时60秒 + 每页10秒，最大不超过30分钟（1800秒）
+            base_timeout = 60
+            per_page_timeout = 10
+            dynamic_timeout = base_timeout + (page_count * per_page_timeout)
+            dynamic_timeout = min(dynamic_timeout, 1800)  # 最大30分钟
+            
+            logger.info(f"动态超时设置: {dynamic_timeout}秒 (页数: {page_count})")
+            
+            # 使用httpx异步客户端
+            timeout = httpx.Timeout(dynamic_timeout, connect=10.0)
+            
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                # 读取PDF文件
+                with open(pdf_path, 'rb') as f:
+                    files = {'pdf_file': ('input.pdf', f, 'application/pdf')}
+                    data = {
+                        'mode': 'plain_ocr',
+                        'output_format': 'json',
+                        'dpi': 144
+                    }
                     
-                    pages = result.get('pages', [])
-                    logger.debug(f"OCR返回的页面数据: {len(pages)} 页")
+                    # 发送异步请求到后端OCR服务
+                    response = await client.post(
+                        f"{self.backend_url}/api/process-pdf",
+                        files=files,
+                        data=data
+                    )
                     
-                    return pages
-                else:
-                    logger.error(f"OCR服务返回错误: {response.status_code} - {response.text}")
-                    raise HTTPException(status_code=500, detail=f"OCR服务错误: {response.text}")
-                    
-        except requests.exceptions.RequestException as e:
+                    if response.status_code == 200:
+                        result = response.json()
+                        logger.info(f"OCR处理完成，共 {result.get('total_pages', 0)} 页")
+                        
+                        pages = result.get('pages', [])
+                        logger.debug(f"OCR返回的页面数据: {len(pages)} 页")
+                        
+                        return pages
+                    else:
+                        logger.error(f"OCR服务返回错误: {response.status_code} - {response.text}")
+                        raise HTTPException(status_code=500, detail=f"OCR服务错误: {response.text}")
+                        
+        except httpx.RequestError as e:
             logger.error(f"连接OCR服务失败: {e}")
             raise HTTPException(status_code=503, detail="OCR服务不可用")
         except Exception as e:
             logger.error(f"OCR处理失败: {e}")
             raise HTTPException(status_code=500, detail=f"OCR处理失败: {str(e)}")
+    
+    def perform_ocr(self, pdf_path: str) -> List[Dict[str, Any]]:
+        """
+        同步调用后端OCR服务处理PDF（向后兼容）
+        
+        Args:
+            pdf_path: PDF文件路径
+            
+        Returns:
+            List[Dict]: OCR结果数据
+        """
+        # 在事件循环中运行异步版本
+        try:
+            return asyncio.run(self.perform_ocr_async(pdf_path))
+        except RuntimeError as e:
+            # 如果已经在事件循环中，使用不同的方法
+            if "cannot be called from a running event loop" in str(e):
+                # 创建新的事件循环
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                try:
+                    return loop.run_until_complete(self.perform_ocr_async(pdf_path))
+                finally:
+                    loop.close()
+            else:
+                raise
     
     def embed_text_to_pdf(self, input_pdf: str, output_pdf: str, ocr_data: List[Dict[str, Any]], remove_text_layer: bool = False) -> str:
         """
@@ -189,60 +239,107 @@ class OCRTextEmbedder:
                 # 没有字体文件，直接失败
                 raise Exception(f"字体文件不存在: {font_file}")
             
+            failed_pages = []
+            successful_pages = []
+            
             for page_data in ocr_data:
                 page_num = page_data.get('page_number', 1) - 1  # 转换为0-based索引
                 
                 if page_num >= len(doc):
+                    logger.warning(f"页面编号 {page_num+1} 超出PDF范围，跳过")
                     continue
                     
                 page = doc[page_num]
                 text = page_data.get('text', '').strip()
                 
-                if text:
-                    # 获取页面尺寸
-                    page_rect = page.rect
+                if not text:
+                    logger.debug(f"页面 {page_num+1} 没有文本内容，跳过")
+                    continue
+                
+                # 获取页面尺寸
+                page_rect = page.rect
+                
+                try:
+                    # 创建一个覆盖大部分页面的文本区域
+                    text_rect = fitz.Rect(
+                        50, 50,  # 左上角
+                        page_rect.width - 50, page_rect.height - 50  # 右下角
+                    )
                     
-                    # 在页面底部添加文本（使用透明文字，完全不可见但可搜索）
-                    try:
-                        # 创建一个覆盖大部分页面的文本区域
-                        text_rect = fitz.Rect(
-                            50, 50,  # 左上角
-                            page_rect.width - 50, page_rect.height - 50  # 右下角
-                        )
-                        
-                        # 使用TextWriter创建透明文字
-                        text_writer = fitz.TextWriter(text_rect, opacity=0, color=(0, 0, 0))
-                        
-                        # 创建字体对象
-                        if actual_font == "CustomFont":
-                            # 使用嵌入的自定义字体
-                            font_obj = fitz.Font(fontfile=font_file)
-                        else:
-                            # 使用内置字体
-                            font_obj = fitz.Font(fontname=actual_font)
-                        
-                        # 使用fill_textbox方法填充文本，正确处理换行符
-                        overflow_lines = text_writer.fill_textbox(
-                            text_rect,
-                            text,
-                            font=font_obj,
-                            fontsize=8,
-                            align=0,  # 左对齐
-                            warn=False  # 不警告溢出
-                        )
-                        
-                        # 写入页面，使用render_mode=3使文本完全不可见但可搜索
-                        text_writer.write_text(page, render_mode=3, overlay=True)
-                        
-                        if overflow_lines:
-                            logger.warning(f"页面 {page_num+1} 部分文本溢出，未完全显示")
-                        
-                        text_count += 1
-                        logger.debug(f"页面 {page_num+1} 文本嵌入成功")
-                        
-                    except Exception as e:
-                        logger.error(f"页面 {page_num+1} 文本嵌入失败: {e}")
-                        raise Exception(f"文本嵌入失败: {e}")
+                    # 使用TextWriter创建透明文字
+                    text_writer = fitz.TextWriter(text_rect, opacity=0, color=(0, 0, 0))
+                    
+                    # 创建字体对象
+                    if actual_font == "CustomFont":
+                        # 使用嵌入的自定义字体
+                        font_obj = fitz.Font(fontfile=font_file)
+                    else:
+                        # 使用内置字体
+                        font_obj = fitz.Font(fontname=actual_font)
+                    
+                    # 使用fill_textbox方法填充文本，正确处理换行符
+                    overflow_lines = text_writer.fill_textbox(
+                        text_rect,
+                        text,
+                        font=font_obj,
+                        fontsize=8,
+                        align=0,  # 左对齐
+                        warn=False  # 不警告溢出
+                    )
+                    
+                    # 写入页面，使用render_mode=3使文本完全不可见但可搜索
+                    text_writer.write_text(page, render_mode=3, overlay=True)
+                    
+                    if overflow_lines:
+                        logger.warning(f"页面 {page_num+1} 部分文本溢出，未完全显示 ({len(overflow_lines)} 行未显示)")
+                        # 记录部分成功
+                        successful_pages.append({
+                            'page': page_num + 1,
+                            'status': 'partial',
+                            'lines_embedded': len(text.split('\n')) - len(overflow_lines),
+                            'lines_total': len(text.split('\n')),
+                            'overflow_lines': len(overflow_lines)
+                        })
+                    else:
+                        successful_pages.append({
+                            'page': page_num + 1,
+                            'status': 'success',
+                            'lines_embedded': len(text.split('\n'))
+                        })
+                    
+                    text_count += 1
+                    logger.debug(f"页面 {page_num+1} 文本嵌入成功")
+                    
+                except Exception as e:
+                    # 页面级错误处理：记录失败但继续处理其他页面
+                    error_msg = str(e)
+                    logger.error(f"页面 {page_num+1} 文本嵌入失败: {error_msg}")
+                    failed_pages.append({
+                        'page': page_num + 1,
+                        'error': error_msg,
+                        'text_length': len(text),
+                        'line_count': len(text.split('\n'))
+                    })
+                    
+                    # 尝试使用更小的字体或不同的方法
+                    logger.warning(f"页面 {page_num+1} 嵌入失败，跳过此页面")
+                    continue
+            
+            # 记录处理结果
+            total_pages = len(ocr_data)
+            success_count = len(successful_pages)
+            fail_count = len(failed_pages)
+            
+            logger.info(f"文本嵌入完成统计: 总页数={total_pages}, 成功={success_count}, 失败={fail_count}, 部分成功={len([p for p in successful_pages if p['status'] == 'partial'])}")
+            
+            if failed_pages:
+                logger.warning(f"以下页面嵌入失败: {[p['page'] for p in failed_pages]}")
+                for failed in failed_pages:
+                    logger.warning(f"  页面 {failed['page']}: {failed['error']}")
+            
+            if success_count == 0 and total_pages > 0:
+                # 如果所有页面都失败，抛出异常
+                raise Exception(f"所有页面文本嵌入失败，共 {fail_count} 页")
             
             # 保存PDF，确保字体嵌入
             doc.save(output_pdf, garbage=4, deflate=True, clean=True, expand=True)

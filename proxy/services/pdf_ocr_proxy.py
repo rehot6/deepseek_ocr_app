@@ -70,8 +70,8 @@ class PDFOCRProxy:
                     else:
                         logger.info(f"同步处理: PDF需要OCR处理")
                     
-                    # 2. 调用OCR服务
-                    ocr_data = self.ocr_embedder.perform_ocr(input_pdf)
+                    # 2. 调用OCR服务（异步）
+                    ocr_data = await self.ocr_embedder.perform_ocr_async(input_pdf)
                     
                     # 3. 创建输出文件
                     output_pdf = create_temp_file(suffix=".pdf")
@@ -175,8 +175,8 @@ class PDFOCRProxy:
                     else:
                         logger.info(f"任务 {task_id}: PDF需要OCR处理")
                     
-                    # 2. 调用OCR服务
-                    ocr_data = self.ocr_embedder.perform_ocr(input_pdf)
+                    # 2. 调用OCR服务（异步）
+                    ocr_data = await self.ocr_embedder.perform_ocr_async(input_pdf)
                     
                     # 3. 创建输出文件
                     output_pdf = create_temp_file(suffix=".pdf")
