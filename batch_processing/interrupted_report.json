@@ -1,0 +1,27 @@
+{
+  "summary": {
+    "total_files": 11,
+    "successful": 0,
+    "failed": 1,
+    "skipped": 0,
+    "success_rate": "0.0%",
+    "start_time": "2025-12-11T16:09:06.855779",
+    "end_time": null,
+    "duration_seconds": 2014.576646,
+    "duration_minutes": 33.57627743333333
+  },
+  "details": [
+    {
+      "file": "GBT+28448-2019.pdf",
+      "task_id": "de185c5e-c36c-4902-a591-3c4379006f72",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T08:39:08.337416",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T16:39:17.522777"
+    }
+  ]
+}

@@ -103,11 +103,11 @@ class OCRTextEmbedder:
                 page_count = 10  # 默认值
             
             # 动态计算超时时间
-            # 基础超时60秒 + 每页10秒，最大不超过30分钟（1800秒）
+            # 基础超时60秒 + 每页10秒，最大不超过60分钟（3600秒）
             base_timeout = 60
             per_page_timeout = 10
             dynamic_timeout = base_timeout + (page_count * per_page_timeout)
-            dynamic_timeout = min(dynamic_timeout, 1800)  # 最大30分钟
+            dynamic_timeout = min(dynamic_timeout, 3600)  # 最大60分钟
             
             logger.info(f"动态超时设置: {dynamic_timeout}秒 (页数: {page_count})")
             

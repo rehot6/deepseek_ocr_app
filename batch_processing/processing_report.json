@@ -1,0 +1,1087 @@
+{
+  "summary": {
+    "total_files": 61,
+    "successful": 50,
+    "failed": 9,
+    "skipped": 2,
+    "success_rate": "82.0%",
+    "start_time": "2025-12-11T11:19:38.196906",
+    "end_time": "2025-12-11T15:53:25.007554",
+    "duration_seconds": 16426.810648,
+    "duration_minutes": 273.78017746666666
+  },
+  "details": [
+    {
+      "file": "GBT+20274.1-2023.pdf",
+      "task_id": "81f4c9b7-ce2a-462e-b838-eb0a3a0c0be5",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:21:04.545936",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 14,
+          "pages_processed": 14
+        }
+      },
+      "timestamp": "2025-12-11T11:21:04.552915"
+    },
+    {
+      "file": "GBT+22239-2019.pdf",
+      "task_id": "7cb87dcf-3ba4-4f54-93d0-7a2cb7031e86",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:30:59.087459",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 91,
+          "pages_processed": 91
+        }
+      },
+      "timestamp": "2025-12-11T11:31:06.766910"
+    },
+    {
+      "file": "GBT+22240-2020.pdf",
+      "task_id": "0ef8eecd-308b-4114-85e4-cbe7e2af5d59",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:32:30.572777",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2025-12-11T11:32:30.579039"
+    },
+    {
+      "file": "GBT+22766.1-2022.pdf",
+      "task_id": "02c78894-bc11-432e-84e2-3adb1a9f6f90",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:34:03.667222",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 14,
+          "pages_processed": 14
+        }
+      },
+      "timestamp": "2025-12-11T11:34:03.672546"
+    },
+    {
+      "file": "GBT+24986.1-2020.pdf",
+      "task_id": "93b76e38-ccb5-441b-a4d2-77f7ebc5a78a",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:35:54.934756",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2025-12-11T11:35:54.941655"
+    },
+    {
+      "file": "GBT+24986.4-2017.pdf",
+      "task_id": "1bf9c1b0-c8bc-4429-b5b6-24656b318075",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:37:16.970100",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 12,
+          "pages_processed": 12
+        }
+      },
+      "timestamp": "2025-12-11T11:37:16.980447"
+    },
+    {
+      "file": "GBT+25066-2020.pdf",
+      "task_id": "9a6ba85c-c93d-4e91-a1c2-72a2db516c70",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:40:19.847988",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 25,
+          "pages_processed": 25
+        }
+      },
+      "timestamp": "2025-12-11T11:40:19.854511"
+    },
+    {
+      "file": "GBT+25070-2019.pdf",
+      "task_id": "70284d9c-d118-4a0d-a2c9-a0d0741ee998",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T03:49:08.883348",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 50,
+          "pages_processed": 50
+        }
+      },
+      "timestamp": "2025-12-11T11:49:08.892086"
+    },
+    {
+      "file": "GBT+28448-2019.pdf",
+      "task_id": "10c899ea-6457-4ab3-b732-1bfbd9aef756",
+      "status": "timeout",
+      "error": "任务监控超时: 1200秒",
+      "timestamp": "2025-12-11T12:09:11.357104"
+    },
+    {
+      "file": "GBT+28827.1-2022.pdf",
+      "task_id": "d2e3b064-3aa9-4787-9cf9-36acf489ee61",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T04:14:33.566981",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T12:14:43.546584"
+    },
+    {
+      "file": "GBT+28827.6-2019.pdf",
+      "task_id": "a2e9d209-36d3-4a23-8d9d-c623fca7e649",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T04:17:45.706987",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T12:17:55.660864"
+    },
+    {
+      "file": "GBT+28827.7-2022.pdf",
+      "task_id": "6a398785-9db7-414d-8b9c-b7b930fecffe",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T04:25:17.879298",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T12:25:17.882957"
+    },
+    {
+      "file": "GBT+30279-2020.pdf",
+      "task_id": "ed06e187-4d27-491d-a5aa-0e1d15847c75",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:29:03.397073",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 22,
+          "pages_processed": 22
+        }
+      },
+      "timestamp": "2025-12-11T12:29:03.404062"
+    },
+    {
+      "file": "GBT+30283-2022.pdf",
+      "task_id": "725f62bb-77f2-486a-b829-1611193b97ba",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:32:42.128705",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 28,
+          "pages_processed": 28
+        }
+      },
+      "timestamp": "2025-12-11T12:32:50.675328"
+    },
+    {
+      "file": "GBT+31167-2023.pdf",
+      "task_id": "7eedbe33-d94a-40d8-8b4a-0104c50eb595",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T04:38:32.815108",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T12:38:32.880046"
+    },
+    {
+      "file": "GBT+32914-2023.pdf",
+      "task_id": "45ca70e6-8891-486f-ab1d-8a966a813229",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:40:25.456619",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2025-12-11T12:40:25.460267"
+    },
+    {
+      "file": "GBT+32922-2023.pdf",
+      "task_id": "e6310de5-4491-4514-9792-358bfe1a10a3",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:43:03.964539",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 21,
+          "pages_processed": 21
+        }
+      },
+      "timestamp": "2025-12-11T12:43:13.281023"
+    },
+    {
+      "file": "GBT+33770.6-2021.pdf",
+      "task_id": "5b61e0e0-945f-4798-ad1d-91c07ca4308e",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:44:48.602772",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 14,
+          "pages_processed": 14
+        }
+      },
+      "timestamp": "2025-12-11T12:44:48.606277"
+    },
+    {
+      "file": "GBT+35273-2020.pdf",
+      "task_id": "e515e372-d53b-45db-a212-2233206fa2a4",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:49:44.511238",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 35,
+          "pages_processed": 35
+        }
+      },
+      "timestamp": "2025-12-11T12:49:45.877924"
+    },
+    {
+      "file": "GBT+35274-2023.pdf",
+      "task_id": "a2aee825-9c49-489f-9bb7-7c0b89c047fe",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:53:19.076686",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2025-12-11T12:53:23.074039"
+    },
+    {
+      "file": "GBT+36464.3-2018.pdf",
+      "task_id": "d8e519bc-27c8-4fa4-b707-9cbc2d59450a",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:55:10.810979",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 16,
+          "pages_processed": 16
+        }
+      },
+      "timestamp": "2025-12-11T12:55:10.816416"
+    },
+    {
+      "file": "GBT+37044-2018.pdf",
+      "task_id": "a50efad8-550b-48ea-8cb8-825f4fb7413d",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:56:16.408562",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 11,
+          "pages_processed": 11
+        }
+      },
+      "timestamp": "2025-12-11T12:56:16.414647"
+    },
+    {
+      "file": "GBT+37879-2019.pdf",
+      "task_id": "89f7e118-4273-4433-bdd7-451b0cb9d8a9",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T04:57:23.261832",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 9,
+          "pages_processed": 9
+        }
+      },
+      "timestamp": "2025-12-11T12:57:23.268267"
+    },
+    {
+      "file": "GBT+37964-2019.pdf",
+      "task_id": "cf313381-3b13-4fbc-86aa-6a6ff7b545f7",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:01:55.627899",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 35,
+          "pages_processed": 35
+        }
+      },
+      "timestamp": "2025-12-11T13:02:00.511283"
+    },
+    {
+      "file": "GBT+38052.6-2023.pdf",
+      "task_id": "c2e9f2d3-9da0-41f0-947a-520ea7af8c05",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:06:04.027839",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 38,
+          "pages_processed": 38
+        }
+      },
+      "timestamp": "2025-12-11T13:06:07.695962"
+    },
+    {
+      "file": "GBT+38052.7-2023.pdf",
+      "task_id": "ae9fdfdd-0d62-4f4e-8d98-e2e326d7702a",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:11:23.707727",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 66,
+          "pages_processed": 66
+        }
+      },
+      "timestamp": "2025-12-11T13:11:23.731552"
+    },
+    {
+      "file": "GBT+38645-2020.pdf",
+      "task_id": "b6e40f07-37c8-47d3-99b1-3cb39ce25e9c",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T05:22:16.323180",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T13:22:16.466363"
+    },
+    {
+      "file": "GBT+39335-2020.pdf",
+      "task_id": "a333b249-e1a8-4dd5-a96a-54ee867ab081",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T05:27:38.679729",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T13:27:48.660738"
+    },
+    {
+      "file": "GBT+39412-2020.pdf",
+      "task_id": "78175c85-5fe8-457c-931f-a78331e44a84",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T05:35:40.951512",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T13:35:40.956518"
+    },
+    {
+      "file": "GBT+39680-2020.pdf",
+      "task_id": "98b48868-96bc-4370-a161-51bdef606f43",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:42:27.191270",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 24,
+          "pages_processed": 24
+        }
+      },
+      "timestamp": "2025-12-11T13:42:27.202239"
+    },
+    {
+      "file": "GBT+39720-2020.pdf",
+      "task_id": "1f6fdd46-e661-47d9-986e-d07e1baa6594",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:44:27.340878",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 18,
+          "pages_processed": 18
+        }
+      },
+      "timestamp": "2025-12-11T13:44:27.347241"
+    },
+    {
+      "file": "GBT+39770-2021.pdf",
+      "task_id": "b8789002-9acf-485b-a499-e8626bb5dcda",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:45:47.516201",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 13,
+          "pages_processed": 13
+        }
+      },
+      "timestamp": "2025-12-11T13:45:47.521808"
+    },
+    {
+      "file": "GBT+39837-2021.pdf",
+      "task_id": "fdca62bf-8bd7-417c-84e6-731fb1e93daf",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:46:33.536302",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 8,
+          "pages_processed": 8
+        }
+      },
+      "timestamp": "2025-12-11T13:46:33.542147"
+    },
+    {
+      "file": "GBT+40012-2021.pdf",
+      "task_id": "91741927-bf7f-46af-9bef-b5bac81e9217",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:47:07.434361",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 7,
+          "pages_processed": 7
+        }
+      },
+      "timestamp": "2025-12-11T13:47:07.439665"
+    },
+    {
+      "file": "GBT+40027-2021.pdf",
+      "task_id": "2941dbd8-ded1-4f4b-87aa-ade952e72428",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:49:59.153392",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 40,
+          "pages_processed": 40
+        }
+      },
+      "timestamp": "2025-12-11T13:50:04.613015"
+    },
+    {
+      "file": "GBT+40645-2021.pdf",
+      "task_id": "4ce2628b-0acc-44c3-932d-02bf1ac00203",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:52:29.944940",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 22,
+          "pages_processed": 22
+        }
+      },
+      "timestamp": "2025-12-11T13:52:29.951721"
+    },
+    {
+      "file": "GBT+40657-2021.pdf",
+      "task_id": "3ae49cdc-be08-4343-a4c9-3333ad12988a",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T05:58:35.944791",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 50,
+          "pages_processed": 50
+        }
+      },
+      "timestamp": "2025-12-11T13:58:37.257710"
+    },
+    {
+      "file": "GBT+40685-2021.pdf",
+      "task_id": "fd7f23d9-fd98-4c9f-87c6-6aa8785d2c61",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:00:07.211485",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 14,
+          "pages_processed": 14
+        }
+      },
+      "timestamp": "2025-12-11T14:00:07.217346"
+    },
+    {
+      "file": "GBT+40778.3-2022.pdf",
+      "task_id": "b4bb9f80-d029-43cf-a671-54368ec220e6",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:01:00.652130",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 10,
+          "pages_processed": 10
+        }
+      },
+      "timestamp": "2025-12-11T14:01:00.658706"
+    },
+    {
+      "file": "GBT+41780.1-2022.pdf",
+      "task_id": "0d3067c4-88e7-4640-b118-706bb25b24b7",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:02:24.951473",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 14,
+          "pages_processed": 14
+        }
+      },
+      "timestamp": "2025-12-11T14:02:24.957699"
+    },
+    {
+      "file": "GBT+41789-2022.pdf",
+      "task_id": "9bf7aa80-f1d2-4b8d-9a8b-3f5b4e250180",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:04:57.314510",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 21,
+          "pages_processed": 21
+        }
+      },
+      "timestamp": "2025-12-11T14:04:57.322323"
+    },
+    {
+      "file": "GBT+41807-2022.pdf",
+      "task_id": "a7aafdac-5b16-4917-8d49-29dc350a5838",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:07:09.101949",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 18,
+          "pages_processed": 18
+        }
+      },
+      "timestamp": "2025-12-11T14:07:09.109648"
+    },
+    {
+      "file": "GBT+41813.1-2022.pdf",
+      "task_id": "ddaf3725-1530-4680-8fbd-dbc298dea0f8",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:09:15.007074",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 16,
+          "pages_processed": 16
+        }
+      },
+      "timestamp": "2025-12-11T14:09:15.013284"
+    },
+    {
+      "file": "GBT+41813.2-2022.pdf",
+      "task_id": "fe046a61-ae14-4dd1-94ae-f0f0ff28868f",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:11:12.207257",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 16,
+          "pages_processed": 16
+        }
+      },
+      "timestamp": "2025-12-11T14:11:22.136304"
+    },
+    {
+      "file": "GBT+41817-2022.pdf",
+      "task_id": "c928cf0a-0b59-416f-8571-ce21b4d00f11",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:13:45.713841",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 21,
+          "pages_processed": 21
+        }
+      },
+      "timestamp": "2025-12-11T14:13:45.720592"
+    },
+    {
+      "file": "GBT+41867-2022.pdf",
+      "task_id": "47d72269-6e5a-4ab0-af10-680007a9d48e",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T06:15:39.806245",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 18,
+          "pages_processed": 18
+        }
+      },
+      "timestamp": "2025-12-11T14:15:39.812954"
+    },
+    {
+      "file": "GBT+42382.1-2023.pdf",
+      "task_id": "4fa13817-8f0a-4c7e-ac02-e82512a400fe",
+      "status": "timeout",
+      "error": "任务监控超时: 1200秒",
+      "timestamp": "2025-12-11T14:35:42.203864"
+    },
+    {
+      "file": "GBT+42396-2023.pdf",
+      "task_id": "de1166b3-c6c0-4ead-b589-4ef8bf384568",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T06:39:34.354961",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T14:39:44.318679"
+    },
+    {
+      "file": "GBT+42460-2023.pdf",
+      "task_id": "ac8b8bb4-91c4-4130-b49c-2d889af10923",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2025-12-11T06:43:56.491646",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2025-12-11T14:44:06.454413"
+    },
+    {
+      "file": "GBT+42560-2023.pdf",
+      "task_id": "607b9368-d8bc-4a7f-9b57-78d304b4283c",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:01:35.759253",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 122,
+          "pages_processed": 122
+        }
+      },
+      "timestamp": "2025-12-11T15:01:35.778251"
+    },
+    {
+      "file": "GBT+42568-2023.pdf",
+      "task_id": "db2e4230-fa8d-4d4b-97dc-05d89a475ae5",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:05:42.741750",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 40,
+          "pages_processed": 40
+        }
+      },
+      "timestamp": "2025-12-11T15:05:43.123750"
+    },
+    {
+      "file": "GBT+42569-2023.pdf",
+      "task_id": "8f766399-f512-4e7c-a250-f22f048ef973",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:06:45.882332",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 10,
+          "pages_processed": 10
+        }
+      },
+      "timestamp": "2025-12-11T15:06:45.888240"
+    },
+    {
+      "file": "GBT+42574-2023.pdf",
+      "task_id": "f409112f-b7bc-4d11-b6d0-d1d008f2b8a5",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:17:01.672963",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 57,
+          "pages_processed": 57
+        }
+      },
+      "timestamp": "2025-12-11T15:17:18.333666"
+    },
+    {
+      "file": "GBT+42582-2023.pdf",
+      "task_id": "047d651e-c2ef-4b80-b468-459bbee852d8",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:31:25.010526",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 78,
+          "pages_processed": 78
+        }
+      },
+      "timestamp": "2025-12-11T15:31:40.963580"
+    },
+    {
+      "file": "GBT+42884-2023.pdf",
+      "task_id": "7a98b190-c6ff-42bb-801a-c5922ed9922b",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:34:43.227970",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 24,
+          "pages_processed": 24
+        }
+      },
+      "timestamp": "2025-12-11T15:34:43.239331"
+    },
+    {
+      "file": "GBT+43045.1-2023.pdf",
+      "task_id": "7a5ad03a-139e-4145-8a29-53ad6ea51ea5",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:36:31.869261",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 17,
+          "pages_processed": 17
+        }
+      },
+      "timestamp": "2025-12-11T15:36:31.876284"
+    },
+    {
+      "file": "GBT+43206-2023.pdf",
+      "task_id": "c062673e-c689-48c2-9838-106f60e46c5c",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:41:52.399330",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 44,
+          "pages_processed": 44
+        }
+      },
+      "timestamp": "2025-12-11T15:41:52.407969"
+    },
+    {
+      "file": "GBT+43207-2023.pdf",
+      "task_id": "26068125-613f-4f38-9e64-b4c9ef606071",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:43:49.189315",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 17,
+          "pages_processed": 17
+        }
+      },
+      "timestamp": "2025-12-11T15:43:49.196136"
+    },
+    {
+      "file": "GBT+43208.1-2023.pdf",
+      "task_id": "74451a2a-b615-4927-ae34-443ca32bc434",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:49:34.525503",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 39,
+          "pages_processed": 39
+        }
+      },
+      "timestamp": "2025-12-11T15:49:36.510642"
+    },
+    {
+      "file": "GBZ+41290-2022.pdf",
+      "task_id": "14e4148f-f98b-4780-aa9f-46aef4f8d25b",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:51:12.502518",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 16,
+          "pages_processed": 16
+        }
+      },
+      "timestamp": "2025-12-11T15:51:12.509055"
+    },
+    {
+      "file": "GBZ+42885-2023.pdf",
+      "task_id": "850dae9a-5ef7-426d-b121-560f87ef3727",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2025-12-11T07:53:24.997252",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 22,
+          "pages_processed": 22
+        }
+      },
+      "timestamp": "2025-12-11T15:53:25.007394"
+    }
+  ]
+}
