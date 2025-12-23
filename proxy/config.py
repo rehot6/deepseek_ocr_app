@@ -27,6 +27,10 @@ class Settings:
         
         # CSRF 配置
         self.csrf_token_url: str = os.getenv("CSRF_TOKEN_URL", "/api/documents/post_document/")
+        
+        # 本地保存配置
+        self.local_save_dir: Optional[str] = os.getenv("LOCAL_SAVE_DIR")
+        self.local_save_enabled: bool = os.getenv("LOCAL_SAVE_ENABLED", "false").lower() == "true"
 
 
 # 全局配置实例

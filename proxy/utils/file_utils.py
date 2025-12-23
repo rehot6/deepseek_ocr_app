@@ -3,8 +3,12 @@
 """
 import os
 import tempfile
+import shutil
 import logging
+from datetime import datetime
 from typing import Optional
+
+from config import settings
 
 logger = logging.getLogger("pdf_ocr_proxy")
 
@@ -65,4 +69,52 @@ def get_file_size(file_path: str) -> Optional[int]:
     try:
         return os.path.getsize(file_path)
     except OSError:
+        return None
+
+
+def save_to_local_directory(source_file: str, original_filename: str = None) -> Optional[str]:
+    """
+    将文件保存到本地目录
+    
+    Args:
+        source_file: 源文件路径
+        original_filename: 原始文件名（可选）
+        
+    Returns:
+        Optional[str]: 保存后的文件路径，如果保存失败返回None
+    """
+    if not settings.local_save_enabled or not settings.local_save_dir:
+        logger.debug("本地保存功能未启用或未配置保存目录")
+        return None
+    
+    try:
+        # 确保目录存在
+        ensure_directory_exists(settings.local_save_dir)
+        
+        # 生成目标文件名
+        if original_filename:
+            # 使用原始文件名，添加时间戳避免冲突
+            base_name = os.path.splitext(original_filename)[0]
+            ext = os.path.splitext(original_filename)[1] or ".pdf"
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            target_filename = f"{base_name}_{timestamp}{ext}"
+        else:
+            # 使用源文件名
+            source_basename = os.path.basename(source_file)
+            base_name = os.path.splitext(source_basename)[0]
+            ext = os.path.splitext(source_basename)[1] or ".pdf"
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            target_filename = f"{base_name}_{timestamp}{ext}"
+        
+        # 完整目标路径
+        target_path = os.path.join(settings.local_save_dir, target_filename)
+        
+        # 复制文件
+        shutil.copy2(source_file, target_path)
+        
+        logger.info(f"文件已保存到本地目录: {target_path}")
+        return target_path
+        
+    except Exception as e:
+        logger.error(f"保存文件到本地目录失败: {e}")
         return None

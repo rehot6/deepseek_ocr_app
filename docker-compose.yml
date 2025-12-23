@@ -36,6 +36,10 @@ services:
       PAPERLESS_API_KEY: ${PAPERLESS_API_KEY}
       BACKEND_OCR_URL: http://backend:8000
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      LOCAL_SAVE_DIR: /app/processed_pdfs
+      LOCAL_SAVE_ENABLED: ${LOCAL_SAVE_ENABLED:-true}
+    volumes:
+      - ./processed_pdfs:/app/processed_pdfs
     ports:
       - "${PROXY_PORT:-8001}:8001"
     depends_on:

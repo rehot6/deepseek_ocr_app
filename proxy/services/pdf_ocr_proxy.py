@@ -11,7 +11,7 @@ from config import settings
 from models.pdf_text_detector import PDFTextDetector
 from services.ocr_embedder import OCRTextEmbedder
 from clients.paperless_client import PaperlessClient
-from utils.file_utils import create_temp_file, cleanup_temp_files
+from utils.file_utils import create_temp_file, cleanup_temp_files, save_to_local_directory
 
 logger = logging.getLogger("pdf_ocr_proxy")
 
@@ -79,6 +79,9 @@ class PDFOCRProxy:
                     # 4. 将OCR文本嵌入PDF（强制OCR时删除原始文本层）
                     result_pdf = self.ocr_embedder.embed_text_to_pdf(input_pdf, output_pdf, ocr_data, remove_text_layer=force_ocr)
                     
+                    # 5. 保存到本地目录（如果启用）
+                    saved_path = save_to_local_directory(result_pdf, pdf_file.filename)
+                    
                     return {
                         "success": True,
                         "message": "OCR处理完成，文本已嵌入PDF",
@@ -86,6 +89,7 @@ class PDFOCRProxy:
                         "force_ocr": force_ocr,
                         "has_text": has_text,
                         "output_file": result_pdf,
+                        "local_saved_path": saved_path,
                         "ocr_data": {
                             "total_pages": len(ocr_data),
                             "pages_processed": len([p for p in ocr_data if p.get('text', '').strip()])
@@ -152,11 +156,15 @@ class PDFOCRProxy:
                     # 上传到Paperless
                     paperless_success = self.paperless_client.upload_document(input_pdf, pdf_file.filename)
                     
+                    # 保存到本地目录（如果启用）
+                    saved_path = save_to_local_directory(input_pdf, pdf_file.filename)
+                    
                     processing_tasks[task_id] = {
                         "status": "completed",
                         "end_time": datetime.now().isoformat(),
                         "message": "PDF已包含有意义的文本，无需OCR处理",
                         "paperless_uploaded": paperless_success,
+                        "local_saved_path": saved_path,
                         "needs_ocr": False,
                         "force_ocr": force_ocr,
                         "has_text": has_text
@@ -166,6 +174,7 @@ class PDFOCRProxy:
                         "success": True,
                         "needs_ocr": False,
                         "paperless_uploaded": paperless_success,
+                        "local_saved_path": saved_path,
                         "force_ocr": force_ocr,
                         "has_text": has_text
                     }
@@ -187,11 +196,15 @@ class PDFOCRProxy:
                     # 5. 上传到Paperless（保持原文件名）
                     paperless_success = self.paperless_client.upload_document(result_pdf, pdf_file.filename)
                     
+                    # 6. 保存到本地目录（如果启用）
+                    saved_path = save_to_local_directory(result_pdf, pdf_file.filename)
+                    
                     processing_tasks[task_id] = {
                         "status": "completed",
                         "end_time": datetime.now().isoformat(),
                         "message": "OCR处理完成，文本已嵌入PDF",
                         "paperless_uploaded": paperless_success,
+                        "local_saved_path": saved_path,
                         "needs_ocr": True,
                         "force_ocr": force_ocr,
                         "has_text": has_text,
@@ -205,6 +218,7 @@ class PDFOCRProxy:
                         "success": True,
                         "needs_ocr": True,
                         "paperless_uploaded": paperless_success,
+                        "local_saved_path": saved_path,
                         "force_ocr": force_ocr,
                         "has_text": has_text
                     }
