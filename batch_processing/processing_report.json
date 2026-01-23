@@ -1,63 +1,198 @@
 {
   "summary": {
-    "total_files": 61,
-    "successful": 50,
-    "failed": 9,
-    "skipped": 2,
-    "success_rate": "82.0%",
-    "start_time": "2025-12-11T11:19:38.196906",
-    "end_time": "2025-12-11T15:53:25.007554",
-    "duration_seconds": 16426.810648,
-    "duration_minutes": 273.78017746666666
+    "total_files": 56,
+    "successful": 55,
+    "failed": 1,
+    "skipped": 0,
+    "success_rate": "98.2%",
+    "start_time": "2026-01-06T10:14:38.024151",
+    "end_time": "2026-01-06T14:04:00.902232",
+    "duration_seconds": 13762.878081,
+    "duration_minutes": 229.38130135
   },
   "details": [
     {
-      "file": "GBT+20274.1-2023.pdf",
-      "task_id": "81f4c9b7-ce2a-462e-b838-eb0a3a0c0be5",
+      "file": "GBT+43697-2024 数据安全技术 数据分类分级规则.pdf",
+      "task_id": "a189260d-8a66-4839-882c-dc55ffdfc504",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T03:21:04.545936",
+        "end_time": "2026-01-06T02:18:03.355253",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+43697-2024 数据安全技术 数据分类分级规则_20260106_021803.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 14,
-          "pages_processed": 14
+          "total_pages": 31,
+          "pages_processed": 31
         }
       },
-      "timestamp": "2025-12-11T11:21:04.552915"
+      "timestamp": "2026-01-06T10:18:08.098432"
     },
     {
-      "file": "GBT+22239-2019.pdf",
-      "task_id": "7cb87dcf-3ba4-4f54-93d0-7a2cb7031e86",
+      "file": "GBT+43698-2024 网络安全技术 软件供应链安全要求.pdf",
+      "task_id": "fa255acc-84e1-4eda-9d2f-3d8c38142f42",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T03:30:59.087459",
+        "end_time": "2026-01-06T02:21:05.043377",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+43698-2024 网络安全技术 软件供应链安全要求_20260106_022105.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 91,
-          "pages_processed": 91
+          "total_pages": 23,
+          "pages_processed": 23
         }
       },
-      "timestamp": "2025-12-11T11:31:06.766910"
+      "timestamp": "2026-01-06T10:21:10.183824"
     },
     {
-      "file": "GBT+22240-2020.pdf",
-      "task_id": "0ef8eecd-308b-4114-85e4-cbe7e2af5d59",
+      "file": "GBT+43739-2024 数据安全技术 应用商店的移动互联网 应用程序 个人信息处理规范性 审核与管理指南.pdf",
+      "task_id": "5f0b4ba9-4673-4849-80be-263edf0b2881",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T03:32:30.572777",
+        "end_time": "2026-01-06T02:23:40.026696",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+43739-2024 数据安全技术 应用商店的移动互联网 应用程序 个人信息处理规范性 审核与管理指南_20260106_022340.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T10:23:42.270155"
+    },
+    {
+      "file": "GBT+43848-2024 网络安全技术 软件产品开源代码安全 评价方法.pdf",
+      "task_id": "30066205-f0a8-46f2-a5e4-590f7952438d",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:25:25.360523",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+43848-2024 网络安全技术 软件产品开源代码安全 评价方法_20260106_022525.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T10:25:25.363237"
+    },
+    {
+      "file": "GBT+43969-2024 智能语音控制器通用安全技术要求.pdf",
+      "task_id": "23c1cc28-bdd9-48cd-aea3-9caac84cc64e",
+      "status": "failed",
+      "details": {
+        "status": "failed",
+        "end_time": "2026-01-06T02:32:57.521388",
+        "message": "处理失败: ",
+        "force_ocr": true
+      },
+      "timestamp": "2026-01-06T10:33:27.474225"
+    },
+    {
+      "file": "GBT+44089-2024 信息技术 全双工语音交互系统 通用技术要求.pdf",
+      "task_id": "32635242-14ca-4a65-8c11-91afbe5f28b0",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:35:07.457714",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44089-2024 信息技术 全双工语音交互系统 通用技术要求_20260106_023507.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T10:35:07.460680"
+    },
+    {
+      "file": "GBT+44109-2024 信息技术 大数据 数据治理实施指南.pdf",
+      "task_id": "f08f5f06-4cd6-418f-a0a2-559d53f1ad68",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:37:48.184960",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44109-2024 信息技术 大数据 数据治理实施指南_20260106_023748.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T10:37:48.188236"
+    },
+    {
+      "file": "GBT+44272-2024 信息技术 开源 开源许可证框架.pdf",
+      "task_id": "7890c50d-6fb8-435d-ba72-fe06d41d0838",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:41:19.746742",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44272-2024 信息技术 开源 开源许可证框架_20260106_024119.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 31,
+          "pages_processed": 31
+        }
+      },
+      "timestamp": "2026-01-06T10:41:20.291928"
+    },
+    {
+      "file": "GBT+44283-2024 物联网 语义互操作实现框架.pdf",
+      "task_id": "10676034-c799-4d0e-8c94-691fb37245b6",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:42:46.405467",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44283-2024 物联网 语义互操作实现框架_20260106_024246.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T10:42:52.338503"
+    },
+    {
+      "file": "GBT+44588-2024 数据安全技术 互联网平台及产品服务 个人信息处理规则.pdf",
+      "task_id": "53133a47-66a5-4f55-b384-94423ade303a",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T02:44:20.923527",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44588-2024 数据安全技术 互联网平台及产品服务 个人信息处理规则_20260106_024420.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
@@ -66,205 +201,38 @@
           "pages_processed": 15
         }
       },
-      "timestamp": "2025-12-11T11:32:30.579039"
+      "timestamp": "2026-01-06T10:44:24.394748"
     },
     {
-      "file": "GBT+22766.1-2022.pdf",
-      "task_id": "02c78894-bc11-432e-84e2-3adb1a9f6f90",
+      "file": "GBT+44601-2024 信息技术服务 服务生存周期过程.pdf",
+      "task_id": "91c3af5c-77da-44ec-88b5-ed08eb7c6628",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T03:34:03.667222",
+        "end_time": "2026-01-06T02:46:09.664111",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44601-2024 信息技术服务 服务生存周期过程_20260106_024609.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 14,
-          "pages_processed": 14
+          "total_pages": 23,
+          "pages_processed": 23
         }
       },
-      "timestamp": "2025-12-11T11:34:03.672546"
+      "timestamp": "2026-01-06T10:46:09.667070"
     },
     {
-      "file": "GBT+24986.1-2020.pdf",
-      "task_id": "93b76e38-ccb5-441b-a4d2-77f7ebc5a78a",
+      "file": "GBT+44811-2024 物联网 数据质量评价方法.pdf",
+      "task_id": "585aabd2-dc2c-49ac-9b9c-5b2e38efa3c0",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T03:35:54.934756",
+        "end_time": "2026-01-06T02:47:12.851002",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 15,
-          "pages_processed": 15
-        }
-      },
-      "timestamp": "2025-12-11T11:35:54.941655"
-    },
-    {
-      "file": "GBT+24986.4-2017.pdf",
-      "task_id": "1bf9c1b0-c8bc-4429-b5b6-24656b318075",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T03:37:16.970100",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 12,
-          "pages_processed": 12
-        }
-      },
-      "timestamp": "2025-12-11T11:37:16.980447"
-    },
-    {
-      "file": "GBT+25066-2020.pdf",
-      "task_id": "9a6ba85c-c93d-4e91-a1c2-72a2db516c70",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T03:40:19.847988",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 25,
-          "pages_processed": 25
-        }
-      },
-      "timestamp": "2025-12-11T11:40:19.854511"
-    },
-    {
-      "file": "GBT+25070-2019.pdf",
-      "task_id": "70284d9c-d118-4a0d-a2c9-a0d0741ee998",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T03:49:08.883348",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 50,
-          "pages_processed": 50
-        }
-      },
-      "timestamp": "2025-12-11T11:49:08.892086"
-    },
-    {
-      "file": "GBT+28448-2019.pdf",
-      "task_id": "10c899ea-6457-4ab3-b732-1bfbd9aef756",
-      "status": "timeout",
-      "error": "任务监控超时: 1200秒",
-      "timestamp": "2025-12-11T12:09:11.357104"
-    },
-    {
-      "file": "GBT+28827.1-2022.pdf",
-      "task_id": "d2e3b064-3aa9-4787-9cf9-36acf489ee61",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T04:14:33.566981",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T12:14:43.546584"
-    },
-    {
-      "file": "GBT+28827.6-2019.pdf",
-      "task_id": "a2e9d209-36d3-4a23-8d9d-c623fca7e649",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T04:17:45.706987",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T12:17:55.660864"
-    },
-    {
-      "file": "GBT+28827.7-2022.pdf",
-      "task_id": "6a398785-9db7-414d-8b9c-b7b930fecffe",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T04:25:17.879298",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T12:25:17.882957"
-    },
-    {
-      "file": "GBT+30279-2020.pdf",
-      "task_id": "ed06e187-4d27-491d-a5aa-0e1d15847c75",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:29:03.397073",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 22,
-          "pages_processed": 22
-        }
-      },
-      "timestamp": "2025-12-11T12:29:03.404062"
-    },
-    {
-      "file": "GBT+30283-2022.pdf",
-      "task_id": "725f62bb-77f2-486a-b829-1611193b97ba",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:32:42.128705",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 28,
-          "pages_processed": 28
-        }
-      },
-      "timestamp": "2025-12-11T12:32:50.675328"
-    },
-    {
-      "file": "GBT+31167-2023.pdf",
-      "task_id": "7eedbe33-d94a-40d8-8b4a-0104c50eb595",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T04:38:32.815108",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T12:38:32.880046"
-    },
-    {
-      "file": "GBT+32914-2023.pdf",
-      "task_id": "45ca70e6-8891-486f-ab1d-8a966a813229",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:40:25.456619",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44811-2024 物联网 数据质量评价方法_20260106_024712.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
@@ -273,768 +241,58 @@
           "pages_processed": 15
         }
       },
-      "timestamp": "2025-12-11T12:40:25.460267"
+      "timestamp": "2026-01-06T10:47:12.854628"
     },
     {
-      "file": "GBT+32922-2023.pdf",
-      "task_id": "e6310de5-4491-4514-9792-358bfe1a10a3",
+      "file": "GBT+44886.1-2024 网络安全技术 网络安全产品互联互通.pdf",
+      "task_id": "acebe2f5-785e-4562-bc76-3ac0048cecb5",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T04:43:03.964539",
+        "end_time": "2026-01-06T02:49:25.980879",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+44886.1-2024 网络安全技术 网络安全产品互联互通_20260106_024925.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 21,
-          "pages_processed": 21
+          "total_pages": 23,
+          "pages_processed": 23
         }
       },
-      "timestamp": "2025-12-11T12:43:13.281023"
+      "timestamp": "2026-01-06T10:49:25.984272"
     },
     {
-      "file": "GBT+33770.6-2021.pdf",
-      "task_id": "5b61e0e0-945f-4798-ad1d-91c07ca4308e",
+      "file": "GBT+45122-2024 消费品适老无障碍设计指南.pdf",
+      "task_id": "42aa3857-cf6d-4559-a3a0-7da499e98a56",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T04:44:48.602772",
+        "end_time": "2026-01-06T02:52:02.608816",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45122-2024 消费品适老无障碍设计指南_20260106_025202.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 14,
-          "pages_processed": 14
+          "total_pages": 23,
+          "pages_processed": 23
         }
       },
-      "timestamp": "2025-12-11T12:44:48.606277"
+      "timestamp": "2026-01-06T10:52:02.612346"
     },
     {
-      "file": "GBT+35273-2020.pdf",
-      "task_id": "e515e372-d53b-45db-a212-2233206fa2a4",
+      "file": "GBT+45230-2025 数据安全技术 机密计算通用框架.pdf",
+      "task_id": "825bd252-8d0e-47a5-8ec0-685ba2f741f0",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T04:49:44.511238",
+        "end_time": "2026-01-06T02:55:39.876480",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 35,
-          "pages_processed": 35
-        }
-      },
-      "timestamp": "2025-12-11T12:49:45.877924"
-    },
-    {
-      "file": "GBT+35274-2023.pdf",
-      "task_id": "a2aee825-9c49-489f-9bb7-7c0b89c047fe",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:53:19.076686",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 27,
-          "pages_processed": 27
-        }
-      },
-      "timestamp": "2025-12-11T12:53:23.074039"
-    },
-    {
-      "file": "GBT+36464.3-2018.pdf",
-      "task_id": "d8e519bc-27c8-4fa4-b707-9cbc2d59450a",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:55:10.810979",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 16,
-          "pages_processed": 16
-        }
-      },
-      "timestamp": "2025-12-11T12:55:10.816416"
-    },
-    {
-      "file": "GBT+37044-2018.pdf",
-      "task_id": "a50efad8-550b-48ea-8cb8-825f4fb7413d",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:56:16.408562",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 11,
-          "pages_processed": 11
-        }
-      },
-      "timestamp": "2025-12-11T12:56:16.414647"
-    },
-    {
-      "file": "GBT+37879-2019.pdf",
-      "task_id": "89f7e118-4273-4433-bdd7-451b0cb9d8a9",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T04:57:23.261832",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 9,
-          "pages_processed": 9
-        }
-      },
-      "timestamp": "2025-12-11T12:57:23.268267"
-    },
-    {
-      "file": "GBT+37964-2019.pdf",
-      "task_id": "cf313381-3b13-4fbc-86aa-6a6ff7b545f7",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:01:55.627899",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 35,
-          "pages_processed": 35
-        }
-      },
-      "timestamp": "2025-12-11T13:02:00.511283"
-    },
-    {
-      "file": "GBT+38052.6-2023.pdf",
-      "task_id": "c2e9f2d3-9da0-41f0-947a-520ea7af8c05",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:06:04.027839",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 38,
-          "pages_processed": 38
-        }
-      },
-      "timestamp": "2025-12-11T13:06:07.695962"
-    },
-    {
-      "file": "GBT+38052.7-2023.pdf",
-      "task_id": "ae9fdfdd-0d62-4f4e-8d98-e2e326d7702a",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:11:23.707727",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 66,
-          "pages_processed": 66
-        }
-      },
-      "timestamp": "2025-12-11T13:11:23.731552"
-    },
-    {
-      "file": "GBT+38645-2020.pdf",
-      "task_id": "b6e40f07-37c8-47d3-99b1-3cb39ce25e9c",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T05:22:16.323180",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T13:22:16.466363"
-    },
-    {
-      "file": "GBT+39335-2020.pdf",
-      "task_id": "a333b249-e1a8-4dd5-a96a-54ee867ab081",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T05:27:38.679729",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T13:27:48.660738"
-    },
-    {
-      "file": "GBT+39412-2020.pdf",
-      "task_id": "78175c85-5fe8-457c-931f-a78331e44a84",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T05:35:40.951512",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T13:35:40.956518"
-    },
-    {
-      "file": "GBT+39680-2020.pdf",
-      "task_id": "98b48868-96bc-4370-a161-51bdef606f43",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:42:27.191270",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 24,
-          "pages_processed": 24
-        }
-      },
-      "timestamp": "2025-12-11T13:42:27.202239"
-    },
-    {
-      "file": "GBT+39720-2020.pdf",
-      "task_id": "1f6fdd46-e661-47d9-986e-d07e1baa6594",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:44:27.340878",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 18,
-          "pages_processed": 18
-        }
-      },
-      "timestamp": "2025-12-11T13:44:27.347241"
-    },
-    {
-      "file": "GBT+39770-2021.pdf",
-      "task_id": "b8789002-9acf-485b-a499-e8626bb5dcda",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:45:47.516201",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 13,
-          "pages_processed": 13
-        }
-      },
-      "timestamp": "2025-12-11T13:45:47.521808"
-    },
-    {
-      "file": "GBT+39837-2021.pdf",
-      "task_id": "fdca62bf-8bd7-417c-84e6-731fb1e93daf",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:46:33.536302",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 8,
-          "pages_processed": 8
-        }
-      },
-      "timestamp": "2025-12-11T13:46:33.542147"
-    },
-    {
-      "file": "GBT+40012-2021.pdf",
-      "task_id": "91741927-bf7f-46af-9bef-b5bac81e9217",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:47:07.434361",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 7,
-          "pages_processed": 7
-        }
-      },
-      "timestamp": "2025-12-11T13:47:07.439665"
-    },
-    {
-      "file": "GBT+40027-2021.pdf",
-      "task_id": "2941dbd8-ded1-4f4b-87aa-ade952e72428",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:49:59.153392",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 40,
-          "pages_processed": 40
-        }
-      },
-      "timestamp": "2025-12-11T13:50:04.613015"
-    },
-    {
-      "file": "GBT+40645-2021.pdf",
-      "task_id": "4ce2628b-0acc-44c3-932d-02bf1ac00203",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:52:29.944940",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 22,
-          "pages_processed": 22
-        }
-      },
-      "timestamp": "2025-12-11T13:52:29.951721"
-    },
-    {
-      "file": "GBT+40657-2021.pdf",
-      "task_id": "3ae49cdc-be08-4343-a4c9-3333ad12988a",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T05:58:35.944791",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 50,
-          "pages_processed": 50
-        }
-      },
-      "timestamp": "2025-12-11T13:58:37.257710"
-    },
-    {
-      "file": "GBT+40685-2021.pdf",
-      "task_id": "fd7f23d9-fd98-4c9f-87c6-6aa8785d2c61",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:00:07.211485",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 14,
-          "pages_processed": 14
-        }
-      },
-      "timestamp": "2025-12-11T14:00:07.217346"
-    },
-    {
-      "file": "GBT+40778.3-2022.pdf",
-      "task_id": "b4bb9f80-d029-43cf-a671-54368ec220e6",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:01:00.652130",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 10,
-          "pages_processed": 10
-        }
-      },
-      "timestamp": "2025-12-11T14:01:00.658706"
-    },
-    {
-      "file": "GBT+41780.1-2022.pdf",
-      "task_id": "0d3067c4-88e7-4640-b118-706bb25b24b7",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:02:24.951473",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 14,
-          "pages_processed": 14
-        }
-      },
-      "timestamp": "2025-12-11T14:02:24.957699"
-    },
-    {
-      "file": "GBT+41789-2022.pdf",
-      "task_id": "9bf7aa80-f1d2-4b8d-9a8b-3f5b4e250180",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:04:57.314510",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 21,
-          "pages_processed": 21
-        }
-      },
-      "timestamp": "2025-12-11T14:04:57.322323"
-    },
-    {
-      "file": "GBT+41807-2022.pdf",
-      "task_id": "a7aafdac-5b16-4917-8d49-29dc350a5838",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:07:09.101949",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 18,
-          "pages_processed": 18
-        }
-      },
-      "timestamp": "2025-12-11T14:07:09.109648"
-    },
-    {
-      "file": "GBT+41813.1-2022.pdf",
-      "task_id": "ddaf3725-1530-4680-8fbd-dbc298dea0f8",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:09:15.007074",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 16,
-          "pages_processed": 16
-        }
-      },
-      "timestamp": "2025-12-11T14:09:15.013284"
-    },
-    {
-      "file": "GBT+41813.2-2022.pdf",
-      "task_id": "fe046a61-ae14-4dd1-94ae-f0f0ff28868f",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:11:12.207257",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 16,
-          "pages_processed": 16
-        }
-      },
-      "timestamp": "2025-12-11T14:11:22.136304"
-    },
-    {
-      "file": "GBT+41817-2022.pdf",
-      "task_id": "c928cf0a-0b59-416f-8571-ce21b4d00f11",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:13:45.713841",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 21,
-          "pages_processed": 21
-        }
-      },
-      "timestamp": "2025-12-11T14:13:45.720592"
-    },
-    {
-      "file": "GBT+41867-2022.pdf",
-      "task_id": "47d72269-6e5a-4ab0-af10-680007a9d48e",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T06:15:39.806245",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 18,
-          "pages_processed": 18
-        }
-      },
-      "timestamp": "2025-12-11T14:15:39.812954"
-    },
-    {
-      "file": "GBT+42382.1-2023.pdf",
-      "task_id": "4fa13817-8f0a-4c7e-ac02-e82512a400fe",
-      "status": "timeout",
-      "error": "任务监控超时: 1200秒",
-      "timestamp": "2025-12-11T14:35:42.203864"
-    },
-    {
-      "file": "GBT+42396-2023.pdf",
-      "task_id": "de1166b3-c6c0-4ead-b589-4ef8bf384568",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T06:39:34.354961",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T14:39:44.318679"
-    },
-    {
-      "file": "GBT+42460-2023.pdf",
-      "task_id": "ac8b8bb4-91c4-4130-b49c-2d889af10923",
-      "status": "failed",
-      "details": {
-        "status": "failed",
-        "end_time": "2025-12-11T06:43:56.491646",
-        "message": "处理失败: ",
-        "force_ocr": true
-      },
-      "timestamp": "2025-12-11T14:44:06.454413"
-    },
-    {
-      "file": "GBT+42560-2023.pdf",
-      "task_id": "607b9368-d8bc-4a7f-9b57-78d304b4283c",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:01:35.759253",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 122,
-          "pages_processed": 122
-        }
-      },
-      "timestamp": "2025-12-11T15:01:35.778251"
-    },
-    {
-      "file": "GBT+42568-2023.pdf",
-      "task_id": "db2e4230-fa8d-4d4b-97dc-05d89a475ae5",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:05:42.741750",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 40,
-          "pages_processed": 40
-        }
-      },
-      "timestamp": "2025-12-11T15:05:43.123750"
-    },
-    {
-      "file": "GBT+42569-2023.pdf",
-      "task_id": "8f766399-f512-4e7c-a250-f22f048ef973",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:06:45.882332",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 10,
-          "pages_processed": 10
-        }
-      },
-      "timestamp": "2025-12-11T15:06:45.888240"
-    },
-    {
-      "file": "GBT+42574-2023.pdf",
-      "task_id": "f409112f-b7bc-4d11-b6d0-d1d008f2b8a5",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:17:01.672963",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 57,
-          "pages_processed": 57
-        }
-      },
-      "timestamp": "2025-12-11T15:17:18.333666"
-    },
-    {
-      "file": "GBT+42582-2023.pdf",
-      "task_id": "047d651e-c2ef-4b80-b468-459bbee852d8",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:31:25.010526",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 78,
-          "pages_processed": 78
-        }
-      },
-      "timestamp": "2025-12-11T15:31:40.963580"
-    },
-    {
-      "file": "GBT+42884-2023.pdf",
-      "task_id": "7a98b190-c6ff-42bb-801a-c5922ed9922b",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:34:43.227970",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 24,
-          "pages_processed": 24
-        }
-      },
-      "timestamp": "2025-12-11T15:34:43.239331"
-    },
-    {
-      "file": "GBT+43045.1-2023.pdf",
-      "task_id": "7a5ad03a-139e-4145-8a29-53ad6ea51ea5",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:36:31.869261",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 17,
-          "pages_processed": 17
-        }
-      },
-      "timestamp": "2025-12-11T15:36:31.876284"
-    },
-    {
-      "file": "GBT+43206-2023.pdf",
-      "task_id": "c062673e-c689-48c2-9838-106f60e46c5c",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:41:52.399330",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 44,
-          "pages_processed": 44
-        }
-      },
-      "timestamp": "2025-12-11T15:41:52.407969"
-    },
-    {
-      "file": "GBT+43207-2023.pdf",
-      "task_id": "26068125-613f-4f38-9e64-b4c9ef606071",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:43:49.189315",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
-        "needs_ocr": true,
-        "force_ocr": true,
-        "has_text": true,
-        "ocr_data": {
-          "total_pages": 17,
-          "pages_processed": 17
-        }
-      },
-      "timestamp": "2025-12-11T15:43:49.196136"
-    },
-    {
-      "file": "GBT+43208.1-2023.pdf",
-      "task_id": "74451a2a-b615-4927-ae34-443ca32bc434",
-      "status": "completed",
-      "details": {
-        "status": "completed",
-        "end_time": "2025-12-11T07:49:34.525503",
-        "message": "OCR处理完成，文本已嵌入PDF",
-        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45230-2025 数据安全技术 机密计算通用框架_20260106_025539.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
@@ -1043,45 +301,827 @@
           "pages_processed": 39
         }
       },
-      "timestamp": "2025-12-11T15:49:36.510642"
+      "timestamp": "2026-01-06T10:55:39.880742"
     },
     {
-      "file": "GBZ+41290-2022.pdf",
-      "task_id": "14e4148f-f98b-4780-aa9f-46aef4f8d25b",
+      "file": "GBT+45288.1-2025 人工智能 大模型 第1部分 通用要求.pdf",
+      "task_id": "3d13ea73-3c83-4623-bc46-56b5078d9a28",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T07:51:12.502518",
+        "end_time": "2026-01-06T02:57:00.959768",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45288.1-2025 人工智能 大模型 第1部分 通用要求_20260106_025700.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 16,
-          "pages_processed": 16
+          "total_pages": 15,
+          "pages_processed": 15
         }
       },
-      "timestamp": "2025-12-11T15:51:12.509055"
+      "timestamp": "2026-01-06T10:57:11.931337"
     },
     {
-      "file": "GBZ+42885-2023.pdf",
-      "task_id": "850dae9a-5ef7-426d-b121-560f87ef3727",
+      "file": "GBT+45288.2-2025 人工智能 大模型 第2部分 评测指标与方法.pdf",
+      "task_id": "d77c4fda-f6ec-4558-9eba-99c528fe2479",
       "status": "completed",
       "details": {
         "status": "completed",
-        "end_time": "2025-12-11T07:53:24.997252",
+        "end_time": "2026-01-06T03:00:40.137113",
         "message": "OCR处理完成，文本已嵌入PDF",
         "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45288.2-2025 人工智能 大模型 第2部分 评测指标与方法_20260106_030040.pdf",
         "needs_ocr": true,
         "force_ocr": true,
         "has_text": true,
         "ocr_data": {
-          "total_pages": 22,
-          "pages_processed": 22
+          "total_pages": 31,
+          "pages_processed": 31
         }
       },
-      "timestamp": "2025-12-11T15:53:25.007394"
+      "timestamp": "2026-01-06T11:00:44.009651"
+    },
+    {
+      "file": "GBT+45288.3-2025 人工智能 大模型 第3部分 服务能力成熟度评估.pdf",
+      "task_id": "46f68e8e-b52b-461f-9b71-40e92a7f2b06",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:03:22.942597",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45288.3-2025 人工智能 大模型 第3部分 服务能力成熟度评估_20260106_030322.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T11:03:22.951373"
+    },
+    {
+      "file": "GBT+45354.1-2025 智能家用电器的语音交互技术 第1部分 通用要求.pdf",
+      "task_id": "e813c85c-ee0b-4bcc-af81-e85a3f8bc924",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:05:15.103693",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45354.1-2025 智能家用电器的语音交互技术 第1部分 通用要求_20260106_030515.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T11:05:25.010880"
+    },
+    {
+      "file": "GBT+45392-2025 数据安全技术 基于个人信息的自动化 决策安全要求.pdf",
+      "task_id": "a55adcc6-f99f-424f-8c27-277683a14455",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:07:25.006750",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45392-2025 数据安全技术 基于个人信息的自动化 决策安全要求_20260106_030724.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T11:07:27.073355"
+    },
+    {
+      "file": "GBT+45393.1-2025 信息技术 建筑信息模型 软件 第1部分 通用要求.pdf",
+      "task_id": "83460e2c-22f0-4109-b5c0-02e6e6285c67",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:08:46.337170",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45393.1-2025 信息技术 建筑信息模型 软件 第1部分 通用要求_20260106_030846.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2026-01-06T11:08:59.120606"
+    },
+    {
+      "file": "GBT+45393.2-2025 信息技术 建筑信息模型 软件 第2部分 参数化模型.pdf",
+      "task_id": "eea3df16-8f01-4835-9ba4-42e0a3598471",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:17:40.274286",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45393.2-2025 信息技术 建筑信息模型 软件 第2部分 参数化模型_20260106_031740.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 103,
+          "pages_processed": 103
+        }
+      },
+      "timestamp": "2026-01-06T11:18:01.313026"
+    },
+    {
+      "file": "GBT+45393.3-2025 信息技术 建筑信息模型 软件 第3部分 模型视图定义.pdf",
+      "task_id": "f4c2627f-721a-4a7a-8563-a49e723671c2",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:25:31.231193",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45393.3-2025 信息技术 建筑信息模型 软件 第3部分 模型视图定义_20260106_032531.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 63,
+          "pages_processed": 63
+        }
+      },
+      "timestamp": "2026-01-06T11:25:31.235429"
+    },
+    {
+      "file": "GBT+45393.4-2025 信息技术 建筑信息模型 软件 第4部分 网格模型.pdf",
+      "task_id": "e5f0005c-c9f3-4dba-9122-ca63890f7d47",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:28:26.695308",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45393.4-2025 信息技术 建筑信息模型 软件 第4部分 网格模型_20260106_032826.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 35,
+          "pages_processed": 35
+        }
+      },
+      "timestamp": "2026-01-06T11:28:33.310428"
+    },
+    {
+      "file": "GBT+45393.5-2025 信息技术 建筑信息模型 软件 第5部分 数据接口.pdf",
+      "task_id": "889ba9df-a3f9-4a2b-b6e5-71e67e3be082",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:32:25.707779",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45393.5-2025 信息技术 建筑信息模型 软件 第5部分 数据接口_20260106_033225.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 39,
+          "pages_processed": 39
+        }
+      },
+      "timestamp": "2026-01-06T11:32:25.710800"
+    },
+    {
+      "file": "GBT+45395-2025 信息技术 小程序应用无障碍技术要求.pdf",
+      "task_id": "60bd2eeb-c15a-49ac-b3cc-e2e26bfcc2a8",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:33:32.014829",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45395-2025 信息技术 小程序应用无障碍技术要求_20260106_033332.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2026-01-06T11:33:32.017162"
+    },
+    {
+      "file": "GBT+45409-2025 网络安全技术 运维安全管理产品 技术规范.pdf",
+      "task_id": "375cc703-b356-4d66-83bc-eb3260ece2d9",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:38:00.467636",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45409-2025 网络安全技术 运维安全管理产品 技术规范_20260106_033800.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 39,
+          "pages_processed": 39
+        }
+      },
+      "timestamp": "2026-01-06T11:38:00.471357"
+    },
+    {
+      "file": "GBT+45574-2025 数据安全技术 敏感个人信息处理安全要求.pdf",
+      "task_id": "8f116015-2523-4689-9331-37174c90e326",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:39:53.322004",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45574-2025 数据安全技术 敏感个人信息处理安全要求_20260106_033953.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T11:40:02.531541"
+    },
+    {
+      "file": "GBT+45577-2025 数据安全技术 数据安全风险评估方法.pdf",
+      "task_id": "624aecb0-7b1c-4157-a31b-8e7c392b0778",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:46:48.521663",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45577-2025 数据安全技术 数据安全风险评估方法_20260106_034648.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 55,
+          "pages_processed": 55
+        }
+      },
+      "timestamp": "2026-01-06T11:46:48.526532"
+    },
+    {
+      "file": "GBT+45652-2025 网络安全技术 生成式人工智能预训练 和优化训练数据安全规范.pdf",
+      "task_id": "e69ce32b-8c46-47b4-836a-d23bba23c229",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:49:08.252663",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45652-2025 网络安全技术 生成式人工智能预训练 和优化训练数据安全规范_20260106_034908.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T11:49:20.603230"
+    },
+    {
+      "file": "GBT+45654-2025 网络安全技术 生成式人工智能服务 安全基本要求.pdf",
+      "task_id": "2e4e33e8-6930-462b-8f33-09ac3c31590c",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:52:34.536429",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45654-2025 网络安全技术 生成式人工智能服务 安全基本要求_20260106_035234.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 31,
+          "pages_processed": 31
+        }
+      },
+      "timestamp": "2026-01-06T11:52:34.539772"
+    },
+    {
+      "file": "GBT+45674-2025 网络安全技术 生成式人工智能数据标注安全规范.pdf",
+      "task_id": "8c8938c1-b933-4ccc-b4b2-8ee85402bfa8",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:55:35.926960",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45674-2025 网络安全技术 生成式人工智能数据标注安全规范_20260106_035535.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T11:55:36.616394"
+    },
+    {
+      "file": "GBT+45907-2025 人工智能 服务能力成熟度评估.pdf",
+      "task_id": "eb642b8e-9f85-481a-a02b-8445a1efb332",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T03:58:31.649187",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45907-2025 人工智能 服务能力成熟度评估_20260106_035831.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T11:58:38.684702"
+    },
+    {
+      "file": "GBT+45923.2-2025 人工智能 知识图谱应用平台 第2部分 性能要求与测试方法.pdf",
+      "task_id": "fe832d8b-ab73-4ed0-85d6-23639f2553df",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:01:22.535577",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45923.2-2025 人工智能 知识图谱应用平台 第2部分 性能要求与测试方法_20260106_040122.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T12:01:22.538438"
+    },
+    {
+      "file": "GBT+45940-2025 网络安全技术 网络安全运维实施指南.pdf",
+      "task_id": "4eb0e5a2-b146-4e0b-9f1c-63fe9a06ebe3",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:06:07.961548",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45940-2025 网络安全技术 网络安全运维实施指南_20260106_040607.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 39,
+          "pages_processed": 39
+        }
+      },
+      "timestamp": "2026-01-06T12:06:07.965314"
+    },
+    {
+      "file": "GBT+45958-2025 网络安全技术 人工智能计算平台安全框架.pdf",
+      "task_id": "cb516c27-efc6-4eaa-9fb5-f38c22eda6ae",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:08:27.721333",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45958-2025 网络安全技术 人工智能计算平台安全框架_20260106_040827.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T12:08:40.029936"
+    },
+    {
+      "file": "GBT+45991-2025 家用和类似用途电器通信 质量评价规范.pdf",
+      "task_id": "29ec3fa1-cdf8-458d-8354-a989cedb2601",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:13:45.412115",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+45991-2025 家用和类似用途电器通信 质量评价规范_20260106_041345.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T12:13:45.414890"
+    },
+    {
+      "file": "GBT+46068-2025 数据安全技术 个人信息跨境处理活动安全认证要求.pdf",
+      "task_id": "9f75bc7f-4cc8-462c-9075-d8b82f45ed37",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:16:04.952146",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46068-2025 数据安全技术 个人信息跨境处理活动安全认证要求_20260106_041604.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T12:16:17.484032"
+    },
+    {
+      "file": "GBT+46069.1-2025 人工智能 算子接口 第1部分 基础数学类.pdf",
+      "task_id": "659fce8f-7acc-4e52-a167-abfd5f1b1bc2",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T04:37:49.885563",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46069.1-2025 人工智能 算子接口 第1部分 基础数学类_20260106_043749.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 191,
+          "pages_processed": 191
+        }
+      },
+      "timestamp": "2026-01-06T12:37:49.893387"
+    },
+    {
+      "file": "GBT+46069.2-2025 人工智能 算子接口 第2部分 神经网络类.pdf",
+      "task_id": "4c5b31c1-7d06-48fb-b010-c87dc766ebe2",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:09:49.781149",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46069.2-2025 人工智能 算子接口 第2部分 神经网络类_20260106_050949.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 215,
+          "pages_processed": 215
+        }
+      },
+      "timestamp": "2026-01-06T13:09:49.790090"
+    },
+    {
+      "file": "GBT+46070-2025 移动智能终端信息无障碍通用规范.pdf",
+      "task_id": "09b69cbd-c6c7-4c06-b541-5cbb086e388d",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:14:28.876131",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46070-2025 移动智能终端信息无障碍通用规范_20260106_051428.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 43,
+          "pages_processed": 43
+        }
+      },
+      "timestamp": "2026-01-06T13:14:28.880075"
+    },
+    {
+      "file": "GBT+46071-2025 数据安全技术 数据安全和个人信息 保护社会责任指南.pdf",
+      "task_id": "69ce8e30-738f-4549-bee7-58cfbc7bd4c7",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:22:13.174599",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46071-2025 数据安全技术 数据安全和个人信息 保护社会责任指南_20260106_052213.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 43,
+          "pages_processed": 43
+        }
+      },
+      "timestamp": "2026-01-06T13:22:13.178897"
+    },
+    {
+      "file": "GBT+46237-2025 信息技术 数字孪生能力成熟度模型.pdf",
+      "task_id": "b42a61c6-a525-4434-b6a6-4cf3f51c3ade",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:23:43.753625",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46237-2025 信息技术 数字孪生能力成熟度模型_20260106_052343.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T13:23:45.227429"
+    },
+    {
+      "file": "GBT+46284-2025 人工智能 联邦学习技术规范.pdf",
+      "task_id": "0c63eb9f-f6e7-4d9b-b902-03915b4a3a6c",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:28:42.430100",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46284-2025 人工智能 联邦学习技术规范_20260106_052842.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T13:28:47.306208"
+    },
+    {
+      "file": "GBT+46287-2025 家用和类似用途电器用户体验设计 评价规范.pdf",
+      "task_id": "1c8a0810-af03-4db4-9f06-54f7c0ee1e7d",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:31:29.966180",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46287-2025 家用和类似用途电器用户体验设计 评价规范_20260106_053129.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T13:31:29.969123"
+    },
+    {
+      "file": "GBT+46345-2025 人工智能 深度学习编译器接口.pdf",
+      "task_id": "4c60e906-e09b-4285-859b-aff7c12a6db1",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:37:24.344905",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46345-2025 人工智能 深度学习编译器接口_20260106_053724.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 31,
+          "pages_processed": 31
+        }
+      },
+      "timestamp": "2026-01-06T13:37:32.053577"
+    },
+    {
+      "file": "GBT+46347-2025 人工智能 风险管理能力评估.pdf",
+      "task_id": "7f4a1db3-ea1b-4aea-b5be-c73f77f46e94",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:41:37.878701",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46347-2025 人工智能 风险管理能力评估_20260106_054137.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 35,
+          "pages_processed": 35
+        }
+      },
+      "timestamp": "2026-01-06T13:41:37.881895"
+    },
+    {
+      "file": "GBT+46351-2025 人工智能 多算法管理技术要求.pdf",
+      "task_id": "d44c8675-d77f-4f4a-a89f-77a020bd1f80",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:47:17.209632",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46351-2025 人工智能 多算法管理技术要求_20260106_054717.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 47,
+          "pages_processed": 47
+        }
+      },
+      "timestamp": "2026-01-06T13:47:17.213171"
+    },
+    {
+      "file": "GBT+46353-2025 信息技术 大数据 数据资产价值评估.pdf",
+      "task_id": "3624d603-5547-4b1a-8b53-85ca16509786",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:49:31.057421",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46353-2025 信息技术 大数据 数据资产价值评估_20260106_054931.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T13:49:31.062531"
+    },
+    {
+      "file": "GBT+46455-2025 信息技术 信息设备互连 智能家居系统评价参数体系和评价方法.pdf",
+      "task_id": "eb8a19ae-204a-492c-8198-37e5ee8ba62d",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:50:54.522978",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46455-2025 信息技术 信息设备互连 智能家居系统评价参数体系和评价方法_20260106_055054.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2026-01-06T13:51:03.108274"
+    },
+    {
+      "file": "GBT+46456.1-2025 信息技术设备互连 智能家居互联互通 第1部分 架构与通用要求.pdf",
+      "task_id": "40149890-564e-451c-a4f2-379b6680f353",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:52:18.532433",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46456.1-2025 信息技术设备互连 智能家居互联互通 第1部分 架构与通用要求_20260106_055218.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2026-01-06T13:52:35.159712"
+    },
+    {
+      "file": "GBT+46456.2-2025 信息技术设备互连 智能家居互联互通 第2部分 测试方法.pdf",
+      "task_id": "74bc8fab-b38d-4c11-afa3-df82b84d18be",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:56:03.402116",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46456.2-2025 信息技术设备互连 智能家居互联互通 第2部分 测试方法_20260106_055603.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 27,
+          "pages_processed": 27
+        }
+      },
+      "timestamp": "2026-01-06T13:56:07.239380"
+    },
+    {
+      "file": "GBT+46456.3-2025 信息技术设备互连 智能家居互联互通 第3部分 局域互联通用要求.pdf",
+      "task_id": "5c0fb23b-6025-4677-8a7f-b9dc501855ec",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:57:10.579335",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46456.3-2025 信息技术设备互连 智能家居互联互通 第3部分 局域互联通用要求_20260106_055710.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 15,
+          "pages_processed": 15
+        }
+      },
+      "timestamp": "2026-01-06T13:57:10.582252"
+    },
+    {
+      "file": "GBT+46483-2025 信息技术 客服型虚拟数字人通用 技术要求.pdf",
+      "task_id": "973c2d23-2b57-4238-b3b1-8844ffb646df",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T05:59:10.723168",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46483-2025 信息技术 客服型虚拟数字人通用 技术要求_20260106_055910.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 19,
+          "pages_processed": 19
+        }
+      },
+      "timestamp": "2026-01-06T13:59:12.640161"
+    },
+    {
+      "file": "GBT+46500.1-2025 家用电器的人机交互 第1部分 通用要求.pdf",
+      "task_id": "418bfd6b-90ea-4212-b27e-5c5b86636ebe",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T06:01:32.417675",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46500.1-2025 家用电器的人机交互 第1部分 通用要求_20260106_060132.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T14:01:44.703295"
+    },
+    {
+      "file": "GBT+46505.1-2025 智能家用电器应用场景 第1部分 通用要求.pdf",
+      "task_id": "4fc5a359-a4ea-4915-9f18-f8659a4a4fc2",
+      "status": "completed",
+      "details": {
+        "status": "completed",
+        "end_time": "2026-01-06T06:04:00.899350",
+        "message": "OCR处理完成，文本已嵌入PDF",
+        "paperless_uploaded": true,
+        "local_saved_path": "/app/processed_pdfs/GBT+46505.1-2025 智能家用电器应用场景 第1部分 通用要求_20260106_060400.pdf",
+        "needs_ocr": true,
+        "force_ocr": true,
+        "has_text": true,
+        "ocr_data": {
+          "total_pages": 23,
+          "pages_processed": 23
+        }
+      },
+      "timestamp": "2026-01-06T14:04:00.902057"
     }
   ]
 }
